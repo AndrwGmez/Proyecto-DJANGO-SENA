@@ -1,0 +1,67 @@
+{% extends "App_SistemaGestionInventario/monitor/plantilla_base_monitor.html" %}
+
+
+{% load static %}
+
+
+    {% block css %}
+        <link rel="stylesheet" href="{% static 'App_SistemaGestionInventario/css/funciones_monitor_style.css' %}">
+    {% endblock css %}
+
+
+{% block content %}
+
+    <!-- Contenido principal -->
+    <main>
+        <h2>Materiales</h2>
+        <!-- Contenedor de funciones o enlaces -->
+        <div class="container">
+            <div class="contenedor-funcion">
+                <!-- Enlace a la función Consumibles -->
+                <a href="{% url "listar_material_consumible_monitor" %}" class="contenedor-link">
+                    <div class="img-funcion">
+                        <!-- Icono de Consumibles -->
+                        <img src="{% static "App_SistemaGestionInventario/img/funciones_instructor_planta/Consumibles512px.png" %}" alt="">
+                    </div>
+                    <!-- Título de la función -->
+                    <h3>Consumibles</h3>
+                </a>
+            </div>
+            <div class="contenedor-funcion">
+                <!-- Enlace a la función Recibir préstamo -->
+                <a href="{% url "listar_material_devolutivo_monitor" %}" class="contenedor-link">
+                    <div class="img-funcion">
+                        <!-- Icono de Recibir préstamo -->
+                        <img src="{% static "App_SistemaGestionInventario/img/funciones_instructor_planta/Devolutivos512px.png" %}" alt="">
+                    </div>
+                    <!-- Título de la función -->
+                    <h3>Devolutivos</h3>
+                </a>
+            </div>
+            <div class="contenedor-funcion">
+                <!-- Enlace a la función Devolutivos -->
+                <a class="contenedor-link" id="contenedor-botones-suministro">
+                    <div class="img-funcion" >
+                        <!-- Icono de Devolutivos -->
+                        <img src="{% static "App_SistemaGestionInventario/img/funciones_instructor_planta/Prestamos512px.png" %}" alt="">
+                    </div>        
+                    <!-- Título de la función -->
+                    <h3>Suministrar materiales</h3>            
+                </a>
+                
+                <div id="botones-suministro">
+                    <div id="botones-consu-devo"> 
+                        <h4>Seleccione el tipo de material</h4>
+                        <a href="{% url "entregable_consumible_monitor" %}"><button>Consumible</button></a>
+                        <a href="{% url "entregable_devolutivo_monitor" %}"><button>Devolutivo</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="{% static "App_SistemaGestionInventario/js/funciones_monitor_script.js" %} "></script>
+
+{% endblock content %}
+
+

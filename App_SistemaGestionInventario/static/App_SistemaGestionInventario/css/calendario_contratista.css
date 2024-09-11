@@ -1,0 +1,176 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+ul{
+    list-style: none;
+}
+
+.titulo h2{
+    padding: 6px;
+    font-size: 30px;
+    text-align: center;
+    color: #00324d;
+    padding-bottom: 15px;
+}
+
+.contenedor-formulario{
+    display: flex;
+    margin-bottom: 30px;
+    
+}
+
+.formulario-fecha{
+    display: flex;
+    width: 500px;
+    margin-left: 10%;
+    padding-top: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    border: 1px solid #00324d;
+    border-radius: 7px;
+    box-shadow: 2px 2px 2px 1px #00324d;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-right: 40px;
+    margin: auto;
+}
+
+.info-uso{
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+
+.formulario-fecha input[type='text']{
+    margin-bottom: 15px;
+    padding: 15px;
+    border: 1px solid #00324d;
+    border-radius: 5px;
+    width: 60%;
+    background-color: #f4f2f2;
+    font-size: 14px;
+}
+
+.formulario-fecha input[type='submit']{
+    font-weight: 700;
+    color: #ffffff;
+    background-color: #00324d;
+    padding: 9px 25px;
+    border-color: #ffffff;
+    border: solid;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    height: 40px;
+}
+
+.formulario-fecha input[type='submit']:hover{
+    background-color: #ffffff;
+    color: #00324d;
+    border-color: #00324d;
+    transform: scale(1.0);
+}
+
+
+
+
+input{
+    text-align: center;
+}
+
+.contenedor-formulario p{
+    margin: 20px 0;
+}
+
+.contenedor-formulario p strong{
+    color: #00324d;
+}
+
+.info-cantidad{
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 25px;
+    display: block;
+}
+
+
+.prestamos form li{
+    font-size: 15px;
+    color: #000000;
+}
+
+.contenedor-prestamos{
+    margin: 5px 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+
+.prestamos{
+    width: 450px;
+    height: 170px;
+    border: 3px solid #00324d;
+    border-radius: 7px;
+    padding: 10px;
+    margin: 20px 10px;
+    
+}
+
+
+.prestamos  li strong{
+    color: #00324d;
+}
+
+/*  */
+
+.formulario-retorno{
+    display: flex;
+    justify-content: center;
+}
+
+.formulario-retorno input{
+    margin: 10px 0;
+    border: 2px solid #00324d;
+    border-radius: 7px;
+    color: #00324d;
+    font-weight: 600;
+    background-color: #ffffff;
+    width: 150px;
+    cursor: pointer;
+    transition: all 0.25s ease; 
+}
+
+.formulario-retorno input:hover{
+    border-color: #ffffff;
+    color: #ffffff;
+    background-color: #00324d;
+    
+}
+
+@media (max-width: 550px) {
+    .formulario-fecha {
+        width: 95%;
+        display: inline-block;
+        text-align: center;
+    }
+
+    .formulario-fecha input[type='text'] {
+        width: 60%;
+    }
+
+    .formulario-fecha input[type="submit"]{
+        vertical-align: middle;
+    }
+
+    li{
+        font-size: 16px;
+    }
+
+    li strong {
+        font-size: 16px;
+    }
+}

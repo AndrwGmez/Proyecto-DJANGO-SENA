@@ -1,0 +1,85 @@
+{% extends "App_SistemaGestionInventario/instructor_planta/base_instructor_planta.html" %}
+
+{% load static %}
+
+    {% block css %}
+
+        <link rel="stylesheet" href="{% static 'App_SistemaGestionInventario/css/listar_mate_devo_planta_style.css' %}">
+
+    {% endblock css %}
+
+
+{% block content %}
+
+    <main>
+        <div class="garan">
+            <div class="garan2">
+                <img src="{% static "App_SistemaGestionInventario/img/funciones_instructor_planta/Devolutivos512px.png" %}" alt="imagen.png">
+            </div>
+            <h2>Materiales Devolutivos</h2>
+            
+        </div>  
+        <p>Para hacer consultas, filtre por nombre o código de barras SENA.</p>
+        <form action="/lis_mate_devo_planta/" method="POST" class="formulario-crear-material" id="crear-materialForm">
+            {% csrf_token %}
+            <div class="contenedor-desplegable-opciones">
+                <label for="">Buscar por: </label>
+                <select name="buscar_material" id="select1">
+                    <option value="codigo_sena_material">Código SENA</option>
+                    <option value="nombre_material">Nombre</option>
+                </select>
+            </div>
+            <input class="input-formulario-material" type="number" name="CodigoSenaMaterial" placeholder="Código SENA">
+            <input type="text" name="NombreMaterial" id="fecha" class="form-input-formulario-material" placeholder="Nombre del elemento">
+            <div class="boton">
+                <button type="submit">Filtrar</button>
+            </div>
+        </form>
+
+        <p>Stock de cada material disponible:</p>
+        <p>Cantidad de modelos {{cantidad_modelo|length}}</p>
+        
+        <ul>
+            {% for cantidad in cantidad_modelo %}
+
+            <li>{{ cantidad.0 }}: {{cantidad.1}}</li>
+            
+            {% endfor %}
+        </ul>
+        
+        
+        <div class="mostrar-materiales">
+            {% if consulta_db %}
+                <ul>
+                    
+                    {% for material in consulta_db %}
+                    <br>
+                    <a>
+                        <div>
+                        <li>Nombre: <strong>{{material.nombre_material}}</strong></li>
+                        <li>Modelo: <strong>{{material.modelo_material}}</strong></li>
+                        <li>Instructor encargado: <strong>{{material.instructor_ecargado_material}}</strong></li>
+                        <li>Código SENA: <strong>{{material.codigo_barras_sena_material}}</strong></li>
+                        <li>Estado: <strong>{{material.estado_material}}</strong></li>
+                        </div>
+                    </a>
+                    <form action="/edi_mate_devo_planta/" method="POST">
+                        {% csrf_token %}
+                        <input type="text" value="{{material.codigo_barras_sena_material}}" style="display: none;" name="codigo_editar">
+                        <input type="submit" value="Editar">
+                    </form>
+                    <br>
+                    <hr>
+                    {% endfor %}
+                    
+                </ul>
+            
+            {% else %}
+            
+                <span>Material <strong> {{ busqueda }} </strong> no se encontró</span>
+            
+            {% endif %}
+        </div>
+    </main>
+
+{% endblock content %}

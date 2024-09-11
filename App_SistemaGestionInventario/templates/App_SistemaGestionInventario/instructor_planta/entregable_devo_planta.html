@@ -1,0 +1,138 @@
+{% extends "App_SistemaGestionInventario/instructor_planta/base_instructor_planta.html" %}
+
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'App_SistemaGestionInventario/css/registrar_elementos_instructor_planta_style.css' %}">
+    <link rel="stylesheet" href="{% static 'App_SistemaGestionInventario/css/entregable_consu_planta_style.css' %}">
+{% endblock css %}
+
+{% block content %}
+
+    <main>
+        <h2>Prestamo devolutivos</h2>
+        <form class="formulario-crear-material" id="crear-materialForm" method="POST" action="/entre_devo_planta/">
+            {% csrf_token %}
+            <div class="contenedor-desplegable">
+                <label for="">Encargado realizar préstamo:</label>
+                <select name="encargado" id="select1">
+                    {% if encargado_prestar %}
+                        {% for prestador in encargado_prestar %}
+                            <option value="{{prestador.numero_documento}}">{{prestador.nombre_1}} {{prestador.apellido_1}}</option>
+                        {% endfor %}
+                    {% endif %}
+                </select>
+            </div>
+            <div class="contenedor-desplegable">
+                <label for="">Rol persona que recibe el material</label>
+                <select name="rol_persona_recibe" id="select1">
+                    {% if rol_recibe %}
+                        {% for rol in rol_recibe %}
+                            <option value="{{rol}}">{{rol}}</option>
+                        {% endfor %}
+                    {% endif %}
+                </select>
+            </div>
+            <div class="contenedor-desplegable">
+                <label for="">Tipo de documento:</label>
+                <select name="tipo_documento_recibe" id="select1">
+                    {% if documento %}
+                        {% for tipo in documento %}
+                            <option value="{{tipo}}">{{tipo}}</option>
+                        {% endfor %}
+                    {% endif %}
+                </select>
+            </div>
+            <input type="number" name="numero_documento_recibe" placeholder="Numero de documento" class="input-formulario-material">
+            <input type="text" name="primer_nombre_recibe" placeholder="Primer nombre" class="input-formulario-material">
+            <input type="text" name="segundo_nombre_recibe" placeholder="Segundo nombre" class="input-formulario-material">
+            <input type="text" name="primer_apellido_recibe" placeholder="Primer apellido" class="input-formulario-material">
+            <input type="text" name="segundo_apellido_recibe" placeholder="Segundo apellido" class="input-formulario-material">
+            <input type="email" name="correo_persona_recibe" placeholder="Correo mi sena" class="input-formulario-material">
+            <input type="number" name="primer_telefono" placeholder="Telefono 1" class="input-formulario-material">
+            <input type="number" name="segundo_telefono" placeholder="Telefono 2" class="input-formulario-material">
+            <input type="number" name="numero_ficha" placeholder="Numero de ficha" class="input-formulario-material">
+            <div class="contenedor-desplegable">
+                <label for="">Material a otorgar:</label>
+                <select name="material_devolutivo_entregable" id="select1">
+                    {% if material_devo %}
+                        {% for material in material_devo %}
+                        <option value="{{material.codigo_barras_sena_material}}">{{material.nombre_material}} {{material.modelo_material}}</option>
+                        {% endfor %}
+                    {% else %}
+                        <option value="-1">No hay materiales</option>
+                    {% endif %}
+                </select>
+            </div>
+            <div class="contenedor-desplegable">
+                <label for="">Ubicación</label>
+                <select name="ubicacion" id="select1">
+                    {% if ubicacion %}
+                        {% for ubicar in ubicacion %}
+                            <option value="{{ubicar}}">{{ubicar}}</option>
+                        {% endfor %}
+                    {% endif %}
+                </select>
+            </div>
+            
+            <div class="contenedor-fecha">
+                <label for="">Fecha de entrega: </label>
+                <input name="fecha_prestamo" type="date" id="fechaActual" readonly class="input-formulario-material">
+            </div> 
+            <div class="contenedor-fecha">
+                <label for="">Fecha de devolución: </label>
+                <input type="date" name="fecha_devolucion">
+            </div>            
+            <div class="boton">
+                <button type="submit">Realizar entrega</button>
+            </div>
+        </form>
+    </main>
+    {% if alerta_mensaje != None and  alerta_mensaje != '' %}
+    <div class="contenedor-ventana-informativa" id="contenedor_ventana_informativa" onclick="ocultarfondo()">
+            <div id="ventana_informativa" class="ventana-informativa">
+                <div class="contenido-ventana">
+                    {{alerta_mensaje}}
+                
+                    <br>
+                    <button onclick="ocultarAlerta()" name="boton-cerrar">Cerrar</button>
+             </div> 
+        
+            
+            </div>
+        </div>
+    {% endif %}
+
+    <script>
+
+        function alerta() {
+        // Muestra el div al cambiar el estilo de display a "block"
+        document.getElementById("ventana_informativa").style.display = "block";
+        }
+
+        function ocultarAlerta() {
+            // Oculta el div al cambiar el estilo de display a "none"
+            
+            document.getElementById("ventana_informativa").style.display = "none";
+            document.getElementById("contenedor_ventana_informativa").style.display = "none";
+        }
+
+
+    </script>
+
+    <script>
+        window.onload = function(){
+            var fecha = new Date(); //Fecha actual
+            var mes = fecha.getMonth()+1; //obteniendo mes
+            var dia = fecha.getDate(); //obteniendo dia
+            var ano = fecha.getFullYear(); //obteniendo año
+            if(dia<10)
+            dia='0'+dia; //agrega cero si el menor de 10
+            if(mes<10)
+            mes='0'+mes //agrega cero si el menor de 10
+            document.getElementById('fechaActual').value=ano+"-"+mes+"-"+dia;
+        }
+    </script>
+
+{% endblock content %}
+

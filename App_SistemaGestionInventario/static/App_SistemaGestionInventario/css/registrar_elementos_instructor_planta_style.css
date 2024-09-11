@@ -1,0 +1,204 @@
+h2 { 
+    font-size: 30px;
+    text-align: center;
+    color: #39A900 !important; 
+    padding-bottom: 3%;
+}
+
+/* MAIN / BODY */
+
+.formulario-crear-material{
+    display: flex;
+    width: 100%;
+    margin: auto;
+    padding-top: 10px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    border: 1px solid #39A900;
+    border-radius: 7px;
+    box-shadow: 2px 2px 2px 1px #39A9008e;
+    padding-bottom: 10px;
+}
+
+.formulario-crear-material input{
+    margin-bottom: 15px;
+    padding: 15px;
+    border: 1px solid #39A900;
+    border-radius: 5px;
+    width: 40%;
+    background-color: #f4f2f2;
+    font-size: 14px;
+}
+
+/*Desplegar tipo documento*/
+.formulario-crear-material .contenedor-desplegable{
+    margin-bottom: 15px;
+    padding: 15px;
+    border: 1px solid #39A900;
+    border-radius: 5px;
+    width: 40%;
+    background-color: #f4f2f2;
+    position: relative;
+    display: inline-block;
+}
+
+.contenedor-desplegable .boton-desplegable-documento{
+    background-color: #f0f0f0;
+    cursor: pointer;
+    color: #767676;
+    font-size: 15px;
+}
+
+.contenedor-desplegable .opciones-documento{
+    display: none;
+    position: absolute;
+    background-color: #f4f2f2;
+    border: 1px solid #39A900;
+    border-radius: 7px;
+    width: 100%;
+    z-index: 1000;
+}
+
+.contenedor-desplegable:hover .opciones-documento{
+    display: block;
+
+}
+
+.contenedor-desplegable .opciones-documento a{
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #000000;
+
+}
+
+.contenedor-desplegable .opciones-documento a:hover{
+    background-color: #39A9008e;
+}
+/* Desplegar tipo documento*/
+
+/* Crear material */
+
+.formulario-crear-material input[type="submit"]{
+    font-size: 30px;
+    padding: 1px;
+    border: 2px solid #39A900;
+    border-radius: 8px;
+    background-color: #39A9008e;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#select1{
+    border: none;
+    padding: 1%;
+    background-color: #f4f2f2;
+    font-size: 15px;
+    color: #39A900;
+    border-radius: 5px;
+}
+
+option{
+    font-size: 15px;
+}
+
+.boton{
+    width: 40%;
+}
+
+.boton button {
+    
+    color: #ffffff;
+    background-color: #39A900;
+    padding: 9px 25px;
+    border-color: #ffffff;
+    border: solid;
+    border-radius: 10px;
+    margin-left: 18%;
+    cursor: pointer;
+    width: 55%;
+    transition: all 0.3s ease 0s;
+    
+    
+}
+.inputfecha{
+    width: 45%;
+    
+}
+
+/* Efecto de color y escala al pasar el cursor sobre el botón de envío */
+.boton button:hover {
+    background-color: #ffffff;
+    color: #39A900;
+    border-color: #39A900;
+    transform: scale(1.1);
+}
+
+/*Con @media se establecen las configuraciones para cuando la pantalla es más pequeña, mismo tamaño que se define en max-width*/
+@media (max-width: 850px){
+    .formulario-crear-material{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .formulario-crear-material input{
+        width: 70%;
+    }
+    
+    .formulario-crear-material .contenedor-desplegable-rol,
+    .formulario-crear-material .contenedor-desplegable{
+        width: 70%;
+    }
+}
+
+::placeholder{
+    color: #767676;
+}
+
+label{
+    font-size: 14px;
+}
+
+/* Ventana informativa */
+
+.contenedor-ventana-informativa {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(161, 161, 161, 0.5);
+}
+
+.ventana-informativa {
+    background-color: #FFFFFF;
+    width: 60%;
+    max-width: 400px;
+    margin: 50vh auto;
+    transform: translateY(-50%);
+    padding: 20px;
+    border-radius: 7px;
+    position: relative;
+    border: 2px solid #39A900;
+}
+
+.contenido-ventana {
+    text-align: center;
+    margin: auto;
+    
+}
+
+.contenido-ventana button {
+    width: 20%;
+    margin-top: 3px;
+    border-radius: 7px;
+    border: 2px solid #39A900;
+    background-color: #FFFFFF;
+    cursor: pointer;
+}
+
+.contenido-ventana button:hover{
+    background-color: #39A900;
+    color: #FFFFFF;
+}

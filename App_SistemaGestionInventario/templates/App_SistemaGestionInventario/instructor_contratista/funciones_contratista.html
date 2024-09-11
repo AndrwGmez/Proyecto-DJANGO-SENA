@@ -1,0 +1,75 @@
+{% extends "App_SistemaGestionInventario/instructor_contratista/base_instructor_contrato.html" %}
+
+{% load static %}
+
+    {% block css %}
+        <link rel="stylesheet" href="{% static 'App_SistemaGestionInventario/css/funciones_instructor_contrato_style.css' %}">
+    {% endblock css %}
+
+
+{% block content %} 
+
+    <main>
+        <h2>Materiales</h2>
+        <div class="container">
+            <div class="contenedor-funcion">
+                <a href="{% url "listar_material_consumible_contrato" %}" class="contenedor-link">
+                    <div class="img-funcion">
+                        <img src="{% static 'App_SistemaGestionInventario/img/funciones_instructor_planta/Consumibles512px.png' %}" alt="">
+                    </div>
+                    <h3>Consumibles</h3>
+                </a>
+            </div>
+            <div class="contenedor-funcion">
+                <a class="contenedor-link" id="contenedor-botones-suministro">
+                    <div class="img-funcion">
+                        <img src="{% static 'App_SistemaGestionInventario/img/funciones_instructor_planta/Prestamos512px.png' %}" alt="">
+                    </div>
+                    <h3>Suministrar materiales</h3>
+                </a>
+                <div id="botones-suministro">
+                    <div id="botones-consu-devo"> 
+                        <h4>Seleccione el tipo de material</h4>
+                        <a href="{% url "entregable_consumible_contrato" %}"><button>Consumible</button></a>
+                        <a href="{% url "entregable_devolutivo_contrato" %}"><button>Devolutivo</button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="contenedor-funcion">
+                <a href="{% url "listar_material_soporte_contrato" %}" class="contenedor-link">
+                    <div class="img-funcion">
+                        <img src="{% static 'App_SistemaGestionInventario/img/funciones_instructor_planta/Soporte512px.png' %}" alt="">
+                    </div>
+                    <h3>Soporte</h3>
+                </a>
+            </div>
+            <div class="contenedor-funcion">
+                <a href="{% url "listar_material_devolutivo_contrato" %}" class="contenedor-link">
+                    <div class="img-funcion">
+                        <img src="{% static 'App_SistemaGestionInventario/img/funciones_instructor_planta/Devolutivos512px.png' %}" alt="">
+                    </div>
+                    <h3>Devolutivos</h3>
+                </a>
+            </div>
+            <div class="contenedor-funcion">
+                <a href="{% url "listar_material_garantia_contrato" %}" class="contenedor-link">
+                    <div class="img-funcion">
+                        <img src="{% static 'App_SistemaGestionInventario/img/funciones_instructor_planta/Garantia512px.png' %}" alt="">
+                    </div>
+                    <h3>En Garantía</h3>
+                </a>
+            </div>
+            <div class="contenedor-funcion">
+                <a href="{% url "listar_material_baja_contrato" %}" class="contenedor-link">
+                    <div class="img-funcion">
+                        <img src="{% static 'App_SistemaGestionInventario/img/funciones_instructor_planta/De_Baja512px.png' %}" alt="">
+                    </div>
+                    <h3>De Baja</h3>
+                </a>
+            </div>
+        </div>
+    </main>
+    
+    <script src="{% static "App_SistemaGestionInventario/js/funciones_contrato_script.js" %}"></script>
+
+{% endblock content %}

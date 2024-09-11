@@ -1,0 +1,90 @@
+{% extends "App_SistemaGestionInventario/monitor/plantilla_base_monitor.html" %}
+
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'App_SistemaGestionInventario/css/ver_perfil_planta_style.css' %}">
+    <link rel="stylesheet" href="{% static 'App_SistemaGestionInventario/css/ver_perfil_monitor_style.css' %}">
+{% endblock css %}
+
+{% block content %}
+
+<main>
+
+    {% if form.errors %}
+    <div class="alert alert-danger">
+        <strong>Error:</strong> Por favor, corrija los siguientes errores del formulario.
+        <ul>
+            {% for field, errors in form.errors.items %}
+                {% if field == 'fecha_inicio_contrato' %}
+                    {% for error in errors %}
+                        <li>{{ field|title }}: {{ error }}</li>
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+{% endif %}
+
+    <h2>Datos personales</h2>
+    <form action="{% url 'visualizar_cuenta_planta' %}" class="formulario-crear-material" id="crear-materialForm" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+    
+        {{ form.nombre_1.errors }}
+        <input type="text" name="nombre_1" value="{{ form.nombre_1.value|default:'' }}" placeholder="Primer nombre">
+        
+        {{ form.nombre_2.errors }}
+        <input type="text" name="nombre_2" value="{{ form.nombre_2.value|default:'' }}" placeholder="Segundo Nombre">
+        
+        {{ form.apellido_1.errors }}
+        <input type="text" name="apellido_1" value="{{ form.apellido_1.value|default:'' }}" placeholder="Primer Apellido">
+        
+        {{ form.apellido_2.errors }}
+        <input type="text" name="apellido_2" value="{{ form.apellido_2.value|default:'' }}" placeholder="Segundo Apellido">
+    
+        <div class="contenedor-desplegable-documento">
+            <label for="id_tipo_documento">Tipo de identificación:</label>
+            {{ form.id_tipo_documento.errors }}
+            <select name="id_tipo_documento" placeholder="Tipo de Identificacion" readonly>
+                <option value="C.C" {% if form.id_tipo_documento.value == 'C.C' %}selected{% endif %}>C.C</option>            
+            </select>
+        </div>
+    
+        <input type="text" name="numero_documento" value="{{ form.numero_documento.value|default:'' }}" placeholder="Numero de Identificacion" readonly>
+        
+        {{ form.correo_sena.errors }}
+        <input type="text" name="correo_sena" value="{{ form.correo_sena.value|default:'' }}" placeholder="Correo Sena">
+        
+        {{ form.correo_soy_sena.errors }}
+        <input type="text" name="correo_soy_sena" value="{{ form.correo_soy_sena.value|default:'' }}" placeholder="Correo Soy Sena">
+        
+        {{ form.celular_1.errors }}
+        <input type="text" name="celular_1" value="{{ form.celular_1.value|default:'' }}" placeholder="Numero de Telefono">                                                
+        
+        {{ form.celular_2.errors }}
+        <input type="text" name="celular_2" value="{{ form.celular_2.value|default:'' }}" placeholder="Numero de Telefono (opcional)">
+            
+        
+        <div class="contenedor-desplegable-documento">
+            <div class="fecha-item">
+                <label for="id_fecha_inicio_contrato" class="info-fecha">Fecha de Inicio:</label>
+                {{ form.fecha_inicio_contrato.value|default:'' }}
+            </div>
+            <div class="fecha-item">
+                <label for="id_fecha_fin_contrato" class="info-fecha">Fecha Fin:</label>
+                {{ form.fecha_fin_contrato.value|default:'' }}
+            </div>
+        </div>
+                
+        
+        {{ form.firma_electronica.errors }}
+        <input type="file" name="firma_electronica" accept="image/*">
+            
+    
+        <div class="boton">
+            <button type="submit">Editar Perfil</button>
+        </div>
+    </form>
+</main>
+
+{% endblock content %}

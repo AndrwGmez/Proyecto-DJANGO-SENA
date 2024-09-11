@@ -1,0 +1,148 @@
+{% extends "App_SistemaGestionInventario/administrador/base_admin.html" %}
+
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'App_SistemaGestionInventario/css/edi_mate_admin_style.css' %}">
+{% endblock css %}
+
+
+{% block content %}
+
+    <main>
+        <div class="edit">
+            <div class="imagen-titulo">
+                <img src="{% static 'App_SistemaGestionInventario/img/editar_materiales.png' %}" alt="">
+            </div>
+            <h2 class="h3" >Editar materiales devolutivos</h2>
+        </div>
+        
+        <form action="/edi_mate_devo_admin/" method="POST" class="formulario-crear-material">
+            {% csrf_token %}
+
+            <label for="">Nombre:</label>
+            <input type="text" value="{{material.nombre_material}}" name="nombre_elemento" class="input-formulario-material">
+
+            
+            <label for="">Modelo:</label>
+            <input type="text" value="{{material.modelo_material}}" name="modelo_elemento" class="input-formulario-material">
+
+            <br>
+
+            <label for="">Valor:</label>
+            <input type="number" value="{{material.valor_material}}" name="valor_elemento" class="input-formulario-material">
+
+            <label for="">Especificaciones técnicas:</label>
+            <input type="text" value="{{material.especificacion_tecnica_material}}" name="especificacion_tecnica" class="input-formulario-material">
+
+            <br>
+
+            <div class="contenedor-desplegable">
+                <label for="">Tipo material: </label>
+                <select name="tipo_elemento" id="desplegable">
+                    <option value="{{material.tipo_material}}">{{material.tipo_material}}</option>
+                    {% for tipo in tipo_material %}
+                        <option value="{{tipo}}">{{tipo}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="contenedor-desplegable">
+                <label for="">Ubicación: </label>
+                <select name="ubicacion_elemento" id="desplegable">
+                    <option value="{{material.ubicacion_material}}">{{material.ubicacion_material}}</option>
+                    {% for ubicar in ubicaion_material %}
+                        <option value="{{ubicar}}">{{ubicar}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="contenedor-desplegable">
+                <label for="">Estado: </label>
+                <select name="estado_elemento" id="desplegable">
+                    <option value="{{material.estado_material}}">{{material.estado_material}}</option>
+                    {% for estado in estado_material %}
+                        <option value="{{estado}}">{{estado}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            
+            <br>
+            
+            <label for="">Instructor encargado: </label>
+            <input type="text" value="{{material.instructor_ecargado_material}}" name="instructor_encargado" class="input-formulario-material" readonly>
+
+            
+            <label for="">Código de barras de fábrica: </label>
+            <input type="text" value="{{material.codigo_barras_original_material}}"  name="codigo_fabrica_elemento" class="input-formulario-material" readonly>
+
+            <br>
+
+            <label for="">Código de barras SENA: </label>
+            <input type="text" value="{{material.codigo_barras_sena_material}}" name="codigo_editar" class="input-formulario-material" readonly>
+            
+            
+            <label for="">Quien registró el material: </label>
+            <input type="text" value="{{material.encargado_registrar_material}}" name="encargado_registrar_material"  class="input-formulario-material" readonly>
+
+            <br>
+
+            <label for="">Fecha de ingreso al sistema: </label>
+            <input type="text" value="{{material.fecha_ingreso_material}}" readonly class="input-formulario-material" readonly>
+
+            <br>
+
+            <label for="">Observaciones: </label>
+            <input type="text"  name="observaciones_nuevas_elemento" class="input-formulario-material">
+
+
+            <br>
+            <label for="">Observaciones anteriores: </label>
+            <br>
+            <textarea name="" id="" cols="30" rows="10" value="" readonly>
+                {{material.observaciones}}
+            </textarea>          
+            
+
+            <div class="contenido-ventana">
+                <button type="submit" onclick="alerta()">Actualizar</button>
+            </div>
+        </form>
+        <button class="cancelar"><a href="{% url 'listar_materiales_devolutivos_administrador' %}">Volver</a></button>
+    </main>
+    {% if mensaje_alerta != None or '' %}
+        <div class="contenedor-ventana-informativa" id="contenedor_ventana_informativa" onclick="ocultarfondo()">
+            <div id="ventana_informativa" class="ventana-informativa">
+                <div class="contenido-ventana">
+                    {{mensaje_alerta}}
+                
+                    <br>
+                    <button onclick="ocultarAlerta()" name="boton-cerrar">Cerrar</button>
+                </div> 
+            
+                
+            </div>
+        </div>
+        
+       
+    {% endif %}
+
+    <script>
+
+        function alerta() {
+        // Muestra el div al cambiar el estilo de display a "block"
+        document.getElementById("ventana_informativa").style.display = "block";
+        }
+
+        function ocultarAlerta() {
+            // Oculta el div al cambiar el estilo de display a "none"
+            
+            document.getElementById("ventana_informativa").style.display = "none";
+            document.getElementById("contenedor_ventana_informativa").style.display = "none";
+        }
+
+    
+    </script>
+
+{% endblock content %}
+

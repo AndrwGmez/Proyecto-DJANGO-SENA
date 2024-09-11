@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Automatización para las bodegas de software"> <!--Descripción de la página-->
+    <meta name="keywords" content="Sistema Gestión Inventario"> <!--Corresponde a la identificación de palabras especiales-->
+    <meta name="author" content="Ficha: 2503319, Angie Katherine Toro, Anderson Rincon Gomez, Mariana Henao Marin, Julio Cesar Orozco Lopez"> <!--Corresponde al autor de la pagina-->
+    <link rel="shortcut icon" href="{% static 'App_SistemaGestionInventario/img/logo_sena.svg' %}">
+    <!--Se agregan los enlaces para el css-->
+    <link rel="stylesheet" href="{% static 'App_SistemaGestionInventario/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'App_SistemaGestionInventario/css/index_principal_style.css' %}">
+    
+    <title>S.G.I</title>
+</head>
+<body>
+    <!-- Cabecera de la pagina -->
+    <header class="header">
+        <div class="logo">
+            <a href="https://senarisaraldadosquebradas.blogspot.com/"><img src="{% static 'App_SistemaGestionInventario/img/logo-sena-verde-actual-2022.svg' %}" alt="Logo sena"></a>
+        </div>
+        <h1 class="titulo">S.G.I</h1>
+        <!-- Dirigir al index de informacion -->
+        <a href="{% url 'funciones_ingreso_rol' %}" class="btn"><button>Iniciar sesión</button></a> <!--al dar click permite re direccionar -->
+    </header>
+
+
+    <!-- Bloque de contenido -->
+    <main class="contenido">
+
+        <!-- Informacion de la pagina -->
+        <section class="contenido-info">
+            <h2>Sistema de Gestión de Inventario</h2>
+            <p>La manera más amigable, eficaz de registrar y gestionar los procesos de inventario.</p>
+            <a href="{% url 'index_info' %}" class="btn"><button>🔍 Conoce más</button></a> <!--al dar click permite re direccionar y se brinda informacion un poco mas detalla del software -->
+        </section>
+
+        <!-- Imagen informacion pagina -->
+        <div class="contenedor-imagen">
+            <img src="{% static 'App_SistemaGestionInventario/img/sistema_gestion_inventario.png' %}" alt="Sistema Gestion de Inventario">
+        </div>
+    </main>
+
+    <!-- Pie de pagina  -->
+    <footer>
+        <!-- Informacion CDITI -->
+        <div class="contenedor-footer">
+            <div class="contenedor-info">
+                <h3 class="nombre-sena">Centro de Diseño e Innovación Tecnológica Industrial</h3>
+                <span class="info-footer"><strong>Dosquebradas:</strong> 3430111</span>
+                <span class="info-footer"><strong>Resto del país:</strong> 018000910270</span>
+                <span class="info-footer"><strong>Horario de atención:</strong> Lunes a Viernes 7:00 AM a 7:00 PM</span>
+            </div>
+            <!-- Redes sociales -->
+            <div class="contenedor-redes">
+                <span class="titulo-redes-sociales">Redes Sociales</span>
+                <div class="redes-sociales-contenedor">
+                    <a href="https://web.facebook.com/SENARisaralda" class="link-social" target="_blank"></a>
+                    <a href="https://www.instagram.com/senadosquebradas/?hl=es" class="link-social" target="_blank"></a>
+                    <a href="https://www.linkedin.com/school/servicio-nacional-de-aprendizaje-sena-/" class="link-social" target="_blank"></a>
+                    <a href="https://www.tiktok.com/@senacomunica_" class="link-social" target="_blank"></a>
+                    <a href="https://twitter.com/SENAComunica" class="link-social" target="_blank"></a>
+                    <a href="https://api.whatsapp.com/send/?phone=573168760255&text&app_absent=0" class="link-social" target="_blank"></a>
+                </div>
+            </div>
+        </div>
+        <!-- Copyright -->
+        <div class="contenedor-copyright">
+            <span class="copyright">&copy;2023, Ficha. 2503319 <br> Anderson Rincon Gomez, Angie Katherine Toro Echeverri, Julio Cesar Orozco López, Mariana Henao Marin</span>
+        </div>
+    </footer>
+</body>
+</html>

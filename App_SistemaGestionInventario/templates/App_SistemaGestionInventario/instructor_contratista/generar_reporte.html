@@ -1,0 +1,54 @@
+{% extends "App_SistemaGestionInventario/instructor_contratista/base_instructor_contrato.html" %}
+
+{% load static %}
+
+    {% block css %}
+        <link rel="stylesheet" href="{% static 'App_SistemaGestionInventario/css/listar_mate_consu_contrato_style.css' %}">
+    {% endblock css %}
+
+
+{% block content %}
+
+    <main>
+        <div class="garan">
+            <div class="garan2">
+                <img src="img/SGI_ICO/Recibir/libro.png" alt="imagen.png">
+            </div>
+            <h2>Descargar reporte</h2>
+            
+        </div>  
+        <p>Descargar un reporte en PDF permite guardar, compartir y acceder a información de manera versátil y segura.</p>
+        <form method="post" action="{% url 'nombre_de_tu_vista_generar_reporte_pdf' %}" class="formulario-crear-material" id="crear-materialForm">
+            <div class="contenedor-desplegable-documento">
+                <label for="select_tipo_elemento">Seleccione el tipo de elemento: </label>
+                <select name="tipo_elemento" id="select_tipo_elemento">
+                    <option value="opcion1">Ambos materiales</option>
+                    <option value="opcion2">Devolutivo</option>
+                    <option value="opcion3">Consumible</option>
+                </select>
+            </div>
+        
+            <div class="contenedor-desplegable-documento">
+                <label for="select_periodicidad">Seleccione la periodicidad: </label>
+                <select name="periodicidad" id="select_periodicidad">
+                    <option value="opcion1">Diario</option>
+                    <option value="opcion2">Semanal</option>
+                    <option value="opcion3">Mensual</option>
+                    <option value="opcion4">Trimestral</option>
+                    <option value="opcion5">Semestral</option>
+                    <option value="opcion6">Anual</option>
+                    <option value="opcion7">Bianual</option>
+                    <option value="opcion8">Trienal</option>
+                    <option value="opcion9">Cuatrienal</option>
+                    <option value="opcion10">Quinquenal</option>
+                    <option value="opcion11">Todo</option>                    
+                </select>
+            </div>                
+            
+            <div class="boton">
+                <center><button type="submit">Generar Reporte</button></center>
+            </div>              
+        </form>
+    </main>
+
+{% endblock content %}

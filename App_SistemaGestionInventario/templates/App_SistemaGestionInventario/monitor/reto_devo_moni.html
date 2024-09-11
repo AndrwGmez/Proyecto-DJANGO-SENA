@@ -1,0 +1,112 @@
+{% extends "App_SistemaGestionInventario/monitor/plantilla_base_monitor.html" %}
+
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'App_SistemaGestionInventario/css/reto_devo_monitor_style.css' %}">
+{% endblock css %}
+
+{% block content %}
+
+<main>
+    <div class="contenedor-titulo">
+        <div class="contenedor-img">
+            <img src="{% static 'App_SistemaGestionInventario/img/retornar_material.png' %}" alt="">
+        </div>
+        <h2>Retornar Material</h2>
+    </div>
+    <div class="formulario-retorno">
+        <input type="text" style="display: none;" value="{{prueba}}" name="codigo_retorno">
+            <h3>Información sobre el material</h3>
+
+            <!-- Materiales -->
+            <label for="">Material: </label>
+            <input type="text" value="{{material.nombre_material}}" readonly>
+
+            <label for="">Modelo: </label>
+            <input type="text" value="{{material.modelo_material}}" readonly>
+
+            <br>
+
+            
+            <label for="">Encargado: </label>
+            <input type="text" name="nombre_instructor" value="{{material.instructor_ecargado_material.nombre_1}} {{objeto_material.instructor_ecargado_material.apellido_1}}" readonly>
+
+            <label for="">Código SENA: </label>
+            <input type="text" value="{{material.codigo_barras_sena_material}}" readonly>
+
+            <br>
+
+            <label for="">Ubicación: </label>
+            <input type="text" value="{{material.ubicacion_material}}" readonly>
+
+            <label for="">Estado: </label>
+            <input type="text" value="{{material.estado_material}}" readonly>
+
+            <hr>
+            
+            <!-- Prestado -->
+            <h3>Información sobre el prestamista</h3>
+
+            <label for="">Rol: </label>
+            <input type="text" value="{{prestamista.rol}}" readonly>
+            
+            {% if objeto_persona.rol == 'Aprendiz' %}
+                <label for="">Numero de ficha:</label>
+                <input type="text" value="{{prestamista.numero_ficha}}" readonly>
+            {% endif %}
+
+            <br>
+
+            <label for="">Número de documento:</label>
+            <input type="text" name="numero_documento" value="{{prestamista.numero_documento}}" readonly>
+
+            <br>
+
+            <label for="">Nombre: </label>
+            <input type="text" value="{{prestamista.primer_nombre}} {{prestamista.primer_apellido}}" readonly>
+            
+            
+            <label for="">Correo: </label>
+            <input type="text" value="{{prestamista.correo_soy_sena}}" readonly>
+
+            <hr>
+
+            <h3>Información general</h3>
+            <!-- Info prestamo -->
+
+            <label for="">Quien hizo el préstamo: </label>
+            <input type="text" name="prestamista" value="{{prestamo.encargado_registra_material_devolutivo.nombre_1}} {{prestamo.encargado_registra_material_devolutivo.apellido_1}}" readonly>
+            
+            <label for="">Fecha de entrega:</label>
+            <input type="text" name="fechas" value="{{prestamo.fecha_entrega_material_devolutivo}}" readonly>
+
+            <br>
+            
+            <label for="">Fecha de devolución: </label>
+            <input type="text" name="fechas" value="{{prestamo.fecha_devolucion_material_devolutivo}}" readonly>
+
+            <hr>
+
+
+            <h3>Observaciones: </h3>
+            <!-- Observaciones -->
+
+
+
+            <label for="">Observaciones registradas: </label>
+            <br>
+            <textarea name="" id="" cols="30" rows="10" readonly>{{objeto_material.observaciones}}</textarea>
+
+           
+    </div>
+    <div class="contenedor-boton-volver">
+        <button class="retroceder"><a href="{% url 'calendario_monitor' %}">Volver</a></button>
+    </div>
+
+    
+</main>
+
+{% endblock content %}
+
+

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Automatización para las bodegas de software"> <!--Descripción de la página-->
+    <meta name="keywords" content="Sistema Gestión Inventario"> <!--Corresponde a la identificación de palabras especiales-->
+    <meta name="author" content="Ficha: 2503319, Angie Katherine Toro, Anderson Rincon Gomez, Mariana Henao Marin, Julio Cesar Orozco Lopez"> <!--Corresponde al autor de la pagina-->
+    <link rel="shortcut icon" href="{% static 'App_SistemaGestionInventario/img/monitor-sin.svg' %}">
+    
+    <link rel="stylesheet" href="{% static 'App_SistemaGestionInventario/css/plantilla_base_monitor_style.css' %}">
+    
+    {% block css %}
+    
+    {% endblock css %}
+    <title>S.G.I</title>
+</head>
+<body>
+    <header class="header"> <!-- Encabezado de la página con la clase "header" -->
+        <div class="seccion-logo">
+            <a class="logo" href="{% url 'funciones_monitor' %}"><img src="{% static 'App_SistemaGestionInventario/img/monitor.svg' %}" alt="logo.sena"></a> <!-- Logo del SENA -->
+        </div>
+        <div class="seccion-menu">
+            <input type="checkbox" id="side-menu" class="side-menu"> <!-- Checkbox para el menú lateral -->
+            <label for="side-menu" class="menham"><span class="l-hamb"></span></label> <!-- Etiqueta del menú hamburguesa -->
+            <nav class="nav"> <!-- Navegación principal de la página -->
+                <ul class="menu"> <!-- Lista de menú -->
+                    <!-- Elementos del menu -->
+                    <li><a href="{% url "calendario_monitor" %}">Calendario</a></li> 
+                    <li><a href="{% url "registrar_material_monitor" %}">Registrar materiales</a></li>                 
+                    <!--PRUEBA PARA LA IMAGEN DESPLEGABLE-->
+                </ul>            
+            </nav>
+        </div>
+
+        <div class="seccion-iconos">
+            <div class="menu-container">
+                <img src="{% static 'App_SistemaGestionInventario/img/usuario512px.png' %}" alt="Menú" class="menu-trigger" onclick="toggleMenu()">
+                <ul class="dropdown-menu" id="myDropdown">
+                    <li><a href="{% url 'visualizar_cuenta_monitor' %}">Cuenta</a></li>
+                    <li><a href="{% url 'salir' %}">Cerrar Sesión</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </header>
+    <a class="flecha" href="{% url 'funciones_monitor' %}">
+        <img src="{% static 'App_SistemaGestionInventario/img/FlechaVolver.png' %}" alt="Volver">
+    </a>
+    {% block content %}
+    
+    
+    {% endblock content %}
+
+    <footer>
+        <div class="contenedor-footer">
+            <div class="contenedor-info">
+                <h3 class="nombre-sena">Centro de Diseño e Innovación Tecnológica Industrial</h3>
+                <span class="info-footer"><strong>Dosquebradas:</strong> 3430111</span>
+                <span class="info-footer"><strong>Resto del país:</strong> 018000910270</span>
+                <span class="info-footer"><strong>Horario de atención:</strong> Lunes a Viernes 7:00 AM a 7:00 PM</span>
+            </div>
+            <div class="contenedor-redes">
+                <span class="titulo-redes-sociales">Redes Sociales</span>
+                <div class="redes-sociales-contenedor">
+                    <a href="https://web.facebook.com/SENARisaralda" class="link-social" target="_blank"></a>
+                    <a href="https://www.instagram.com/senadosquebradas/?hl=es" class="link-social" target="_blank"></a>
+                    <a href="https://www.linkedin.com/school/servicio-nacional-de-aprendizaje-sena-/" class="link-social" target="_blank"></a>
+                    <a href="https://www.tiktok.com/@senacomunica_" class="link-social" target="_blank"></a>
+                    <a href="https://twitter.com/SENAComunica" class="link-social" target="_blank"></a>
+                    <a href="https://api.whatsapp.com/send/?phone=573168760255&text&app_absent=0" class="link-social" target="_blank"></a>
+                </div>
+            </div>
+        </div>
+        <div class="contenedor-copyright">
+            <span class="copyright">&copy;2023, Ficha. 2503319</span>
+        </div>
+    </footer>
+    <script src="{% static "App_SistemaGestionInventario/js/base_administrador_script.js" %}"></script>
+</body>
+</html>

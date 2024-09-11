@@ -1,0 +1,81 @@
+main{
+    margin: 0;
+    padding: 0;
+}
+
+.planta{
+    color: #39A900;
+    text-align: center;
+    font-size: 1.8em;
+    border-bottom: 2px solid;
+    margin: 0 30%;
+    margin-bottom: 3%;
+}
+
+p{
+    margin-left: 4%;
+    font-size: 1.4em;
+}
+
+.informacion_planta li{
+    margin-left: 5%;
+}
+
+.entre_planta{
+    height: 2px;
+    border: 0;
+    background-color: #39A900;
+    width: 80%;
+    margin-left: 4%;
+}
+
+
+.contrato{
+    color: #00324d;
+    text-align: center;
+    font-size: 1.8em;
+    border-bottom: 2px solid;
+    margin: 0 30%;
+    margin-bottom: 3%;
+}
+
+.informacion_contrato li{
+    margin-left: 5%;
+}
+
+.entre_contrato{
+    height: 2px;
+    border: 0;
+    background-color: #00324d;
+    width: 80%;
+    margin-left: 4%;
+}
+
+
+.monitor{
+    color: #FFCE40;
+    text-align: center;
+    font-size: 1.8em;
+    border-bottom: 2px solid;
+    margin: 0 30%;
+    margin-bottom: 3%;
+}
+
+.informacion_monitor li{
+    margin-left: 5%;
+}
+
+.entre_monitor{
+    height: 2px;
+    border: 0;
+    background-color: #FFCE40;
+    width: 80%;
+    margin-left: 4%;
+}
+
+
+@media (max-width: 560px){
+    strong li{
+        font-size: 1em;
+    }
+}

@@ -1,0 +1,224 @@
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+ul{
+    list-style: none;
+}
+
+.titulo h2{
+    padding: 6px;
+    font-size: 30px;
+    text-align: center;
+    color: #FFCE40;
+    padding-bottom: 15px;
+}
+
+.contenedor-formulario{
+    display: flex;
+    margin-bottom: 30px;
+    
+}
+
+.formulario-fecha{
+    
+    display: flex;
+    width: 500px;
+    margin-left: 10%;
+    padding-top: 10px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    border: 1px solid #FFCE40;
+    border-radius: 7px;
+    box-shadow: 2px 2px 2px 1px #FFCE40;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-right: 40px;
+    margin: auto;
+}
+
+.info-uso{
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+
+.formulario-fecha input[type='text']{
+    margin-bottom: 15px;
+    padding: 15px;
+    border: 1px solid #FFCE40;
+    border-radius: 5px;
+    width: 60%;
+    background-color: #f4f2f2;
+    font-size: 14px;
+}
+
+.formulario-fecha input[type='submit']{
+    font-weight: 700;
+    color: #ffffff;
+    background-color: #FFCE40;
+    padding: 9px 25px;
+    border-color: #ffffff;
+    border: solid;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    height: 40px;
+}
+
+.formulario-fecha input[type='submit']:hover{
+    background-color: #ffffff;
+    color: #FFCE40;
+    border-color: #FFCE40;
+    transform: scale(1.0);
+}
+
+
+
+
+input{
+    text-align: center;
+}
+
+.contenedor-formulario p{
+    margin: 20px 0;
+}
+
+.contenedor-formulario p strong{
+    color: #FFCE40;
+}
+
+.info-cantidad{
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 25px;
+    display: block;
+}
+
+
+.prestamos li{
+    font-size: 15px;
+    color: #000000;
+}
+
+.contenedor-prestamos{
+    margin: 5px 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+
+.prestamos{
+    width: 400px;
+    height: 160px;
+    border: 3px solid #FFCE40;
+    border-radius: 7px;
+    padding: 10px;
+    margin: 10px;
+}
+
+
+.prestamos a li strong{
+    color: #FFCE40;
+}
+
+/*  */
+
+
+#formulario-emergente{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fafafa;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    height: 400px;
+}
+
+#botones-consu-devo{
+    background-color: #FFFFFF;
+    width: 60%;
+    max-width: 400px;
+    margin: 50vh auto;
+    transform: translateY(-50%);
+    padding: 20px;
+    border-radius: 7px;
+    position: relative;
+    border: 2px solid #FFCE40;
+}
+
+#botones-consu-devo h4{
+    color: #FFCE40;
+    border-bottom: 1px solid #FFCE40;
+    margin: 4%;
+}
+
+#botones-consu-devo button{
+    border: 2px solid #FFCE40;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 5%;
+    height: 3%;
+    background-color: #38a90047;
+    cursor: pointer;
+}
+
+#formulario-emergente{
+    display: none;
+}
+
+#formulario-emergente form{
+    border: 1px solid black;
+    padding: 10px;
+}
+
+
+#formulario-emergente form label{
+    font-size: 16px;
+    padding: 1.5px;
+}
+
+#formulario-emergente form input[type="text"],
+                                [type="number"],
+                                [type="email"],
+                                [type="date"]{
+    width: 25%;
+    font-size: 16px;
+    margin: 5px 3px;
+    padding-right: 10px;
+    text-align: end;
+}
+
+#formulario-emergente form input[placeholder]{
+    width: 80%;
+    max-width: 100%; /* Ajusta este valor según sea necesario */
+    height: 100px;
+    text-align: start;
+    border-radius: 7px;
+    padding: 2px;
+    margin-top: 10px;
+    white-space: pre-wrap;
+    overflow: auto;
+}
+
+#formulario-emergente form input[type="submit"] {
+    margin-top: 10px; /* Puedes ajustar esto según sea necesario */
+    align-self: flex-end; /* Coloca el botón al final del contenedor */
+}
+
+#formulario-emergente form {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan si el espacio es insuficiente */
+}
+
+#formulario-emergente form input[type="submit"] {
+    order: 999; /* Coloca el botón al final del contenedor */
+    margin-top: 10px; /* Puedes ajustar esto según sea necesario */
+}

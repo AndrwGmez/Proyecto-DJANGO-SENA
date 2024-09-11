@@ -1,0 +1,205 @@
+@font-face {
+    font-family: 'Myriad Pro Regular' ;
+    src: url(../../tipografia/MyriadProRegular/Myriad\ Pro\ Regular.ttf);
+}
+
+:root{
+    --white: #39A900;
+    --green: #229395;
+    --green-light: #fdfdfd;
+    --black: #000000;
+    --grey: #85888C;
+    --violet:#A830C6;
+    --red:#EC410F;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Myriad Pro Regular", sans-serif;
+}
+
+main{
+    width: 90%; 
+    margin-left: 5%;  
+    padding: 20px;
+}
+
+a{
+    text-decoration: none;
+}
+
+ul{
+    list-style: none;
+}
+
+p{
+    text-align: center;
+    margin-bottom: 3% ;
+}
+
+/* HEADER / NAVBAR */
+.garan{
+   
+    justify-content: center;
+    display: flex;
+}
+
+.garan img{
+    width: 50px;
+    height: 50px;
+}
+
+.garan h2  {
+    padding: 6px;
+    font-size: 30px;
+    text-align: center;
+    color: #39A900;
+    padding-bottom: 3%;
+}
+
+/* MAIN / BODY */
+
+.formulario-crear-material{
+    display: flex;
+    width: 100%;
+    margin: auto;
+    padding-top: 10px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    border: 1px solid #39A900;
+    border-radius: 7px;
+    box-shadow: 2px 2px 2px 1px #39A9008e;
+    padding-bottom: 10px;
+}
+
+.formulario-crear-material input{
+    margin-bottom: 15px;
+    padding: 15px;
+    border: 1px solid #39A900;
+    border-radius: 5px;
+    width: 25%;
+    background-color: #f4f2f2;
+    font-size: 14px;
+}
+
+/*Desplegar tipo documento*/
+.formulario-crear-material .contenedor-desplegable-opciones{
+    margin-bottom: 15px;
+    padding: 15px;
+    border: 1px solid #39A900;
+    border-radius: 5px;
+    width: 25%;
+    background-color: #f4f2f2;
+    position: relative;
+    display: inline-block;
+}
+
+.contenedor-desplegable-opciones .opciones-documento{
+    display: none;
+    position: absolute;
+    background-color: #f4f2f2;
+    border: 1px solid #39A900;
+    border-radius: 7px;
+    width: 100%;
+    z-index: 1000;
+}
+/* Desplegar tipo documento*/
+
+/* Desplegable Rol */
+
+
+label{
+    font-size: 15px;
+}
+
+#select1{
+    border: none;
+    padding: 1%;
+    background-color: #f4f2f2;
+    font-size: 15px;
+    color: #39A900;
+    width: 60%;
+}
+
+.boton{
+    width: 50%;
+}
+
+.boton button {
+    font-weight: 700;
+    color: #ffffff;
+    background-color: #39A900;
+    padding: 9px 25px;
+    border-color: #ffffff;
+    border: solid;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    margin-left: 45%;
+    height: 40px;
+}
+
+/* Efecto de color y escala al pasar el cursor sobre el botón de envío */
+.boton button:hover {
+    background-color: #ffffff;
+    color: #39A900;
+    border-color: #39A900;
+    transform: scale(1.0);
+}
+
+/*ELEMENTOS */
+/* Desplegar rol*/
+
+.formulario-crear-material input[type="submit"]{
+    font-size: 20px;
+    padding: 10px;
+    border: 2px solid #39A900;
+    border-radius: 5px;
+    background-color: #39A9008e;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+@media (max-width: 850px){
+    .formulario-crear-material{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .formulario-crear-material input{
+        width: 70%;
+    }
+    
+    .formulario-crear-material .contenedor-desplegable-rol,
+    .formulario-crear-material .contenedor-desplegable-opciones{
+        width: 70%;
+    }
+}
+
+::placeholder{
+    color: #767676;
+}
+
+input{
+    color: #39A900;
+}
+
+/* Estilos para el contenedor de la sección inferior */
+
+.filtrar-material{
+    margin-top: 3%;
+    text-align: left;
+}
+
+.filtrar-material a{
+    color: #000000;
+}
+
+.filtrar-material a:hover strong{
+    color: #39A900;
+}

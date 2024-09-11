@@ -1,0 +1,88 @@
+
+* 
+{
+    box-sizing: border-box;
+    
+}
+
+
+body {
+    font-family: 'Roboto', sans-serif;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(to top, #0fd850 0%, #0fd877 50%,  #31e68e 100%);
+    background-size:cover;
+    height: 100vh;
+}
+
+
+
+a{
+    font-size: 95%;
+    color: rgb(19, 209, 111);
+    text-decoration: none;
+}
+
+
+h1 {
+    margin: 0;
+    color: #39A900;
+}
+
+.tpd-card {
+    text-align: center;
+    background-color: white;
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: 0 10px 40px -20px #39A900;
+}
+
+.tpd-card-ingreso {
+    margin: 30px 0;
+    display: grid;
+    gap: 30px;
+    justify-content: center;
+    grid-template-columns: repeat(1, auto) ;
+}
+
+
+.tpd-card-ingreso input {
+    color: #233717;
+    width: 600px;
+    height: 70px;
+    font-size: 20px;
+    text-align: center;
+    border-radius: 20px;
+    border: 1px solid black;
+}
+
+
+.tpd-card-ingreso input:focus {
+    outline: 2px solid #39A900;
+    border-color: transparent;
+    transition: all 0.3s ease 0s;
+}
+
+.tpd-card button{    
+    width: 35%;
+    font-weight: 700;
+    color: #ffffff;
+    background-color: #39A900;
+    padding: 9px 25px;
+    border-color: #ffffff;
+    border: solid;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    justify-content: center;    
+}
+
+.tpd-card button:hover{    
+    background-color: #ffffff;
+    color: #39A900;
+    border-color: #39A900;
+    transform: scale(1.1);
+}

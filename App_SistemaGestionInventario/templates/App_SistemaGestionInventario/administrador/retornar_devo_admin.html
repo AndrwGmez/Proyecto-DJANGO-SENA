@@ -1,0 +1,165 @@
+{% extends "App_SistemaGestionInventario/administrador/base_admin.html" %}
+
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'App_SistemaGestionInventario/css/retornar_devo_admin_style.css' %}">
+{% endblock css %}
+
+{% block content %}
+
+    <main>
+        <div class="contenedor-titulo">
+            <div class="contenedor-img">
+                <img src="{% static 'App_SistemaGestionInventario/img/retornar_material.png' %}" alt="">
+            </div>
+            <h2>Retornar Material</h2>
+        </div>
+        
+        <form action="/reto_devo_admin/" class="formulario-retorno" method="POST" id="miFormulario">
+            {% csrf_token %}
+
+            <input type="text" style="display: none;" value="{{prueba}}" name="codigo_retorno">
+            <h3>Información sobre el material</h3>
+
+            <!-- Materiales -->
+            <label for="">Material: </label>
+            <input type="text" value="{{objeto_material.nombre_material}}" readonly>
+
+            <label for="">Modelo: </label>
+            <input type="text" value="{{objeto_material.modelo_material}}" readonly>
+
+            <br>
+
+            
+            <label for="">Encargado: </label>
+            <input type="text" name="nombre_instructor" value="{{objeto_material.instructor_ecargado_material.nombre_1}} {{objeto_material.instructor_ecargado_material.apellido_1}}" readonly>
+
+            <label for="">Código SENA: </label>
+            <input type="text" value="{{objeto_material.codigo_barras_sena_material}}" readonly>
+
+            <br>
+
+            <div class="contenedor-desplegable">
+                <label for="">Ubicación: </label>
+                <select name="ubicacion_nueva_material" id="desplegable">
+                    <option value="{{objeto_material.ubicacion_material}}">{{objeto_material.ubicacion_material}}</option>
+                    {% for ubicar in ubicacion %}
+                        <option value="{{ubicar}}">{{ubicar}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="contenedor-desplegable">
+                <label for="">Estado del material: </label>
+                <select name="estado_nuevo_material" id="desplegable">
+                    <option value="{{objeto_material.estado_material}}">{{objeto_material.estado_material}}</option>
+                    {% for estado in estado_material %}
+                        <option value="{{estado}}">{{estado}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <hr>
+            
+            <!-- Prestado -->
+            <h3>Información sobre el prestamista</h3>
+
+            <label for="">Rol: </label>
+            <input type="text" value="{{objeto_persona.rol}}" readonly>
+            
+            {% if objeto_persona.rol == 'Aprendiz' %}
+                <label for="">Numero de ficha:</label>
+                <input type="text" value="{{objeto_persona.numero_ficha}}" readonly>
+            {% endif %}
+
+            <br>
+
+            <label for="">Número de documento:</label>
+            <input type="text" name="numero_documento" value="{{objeto_persona.numero_documento}}" readonly>
+
+            <br>
+
+            <label for="">Nombre: </label>
+            <input type="text" value="{{objeto_persona.primer_nombre}} {{objeto_persona.primer_apellido}}" readonly>
+            
+            
+            <label for="">Correo: </label>
+            <input type="text" value="{{objeto_persona.correo_soy_sena}}" readonly>
+
+            <hr>
+
+            <h3>Información general</h3>
+            <!-- Info prestamo -->
+
+            <label for="">Quien hizo el préstamo: </label>
+            <input type="text" name="prestamista" value="{{objeto_prestamo.encargado_registra_material_devolutivo.nombre_1}} {{objeto_prestamo.encargado_registra_material_devolutivo.apellido_1}}" readonly>
+            
+            <label for="">Fecha de entrega:</label>
+            <input type="text" name="fechas" value="{{objeto_prestamo.fecha_entrega_material_devolutivo}}" readonly>
+
+            <br>
+            
+            <label for="">Fecha de devolución: </label>
+            <input type="text" name="fechas" value="{{objeto_prestamo.fecha_devolucion_material_devolutivo}}" readonly>
+
+            <hr>
+
+
+            <h3>Observaciones: </h3>
+            <!-- Observaciones -->
+            <label for="">Observaciones: </label>
+            <input type="text" name="observaciones_nuevas">
+            <br>
+            <span>Campo no obligatorio</span>
+
+            <br>
+
+            <label for="">Observaciones registradas: </label>
+            <br>
+            <textarea name="" id="" cols="30" rows="10" readonly>{{objeto_material.observaciones}}</textarea>
+            <te type="textare" value="" readonly>
+
+            <div class="contenedor-boton">
+                <button onclick="alerta()" type="submit">Retornar</button>
+            </div>
+            
+            
+        </form>
+        <button class="retroceder" ><a href="{% url 'calendario_administrador' %}">Atras</a></button>
+
+        
+    </main>
+    {% if mensaje_alerta != none or '' %}
+        <div class="contenedor-ventana-informativa" id="contenedor_ventana_informativa" onclick="ocultarfondo()">
+            <div id="ventana_informativa" class="ventana-informativa">
+                <div class="contenido-ventana">
+                    {{mensaje_alerta}}
+                
+                    <br>
+                    <button onclick="ocultarAlerta()" name="boton-cerrar">Cerrar</button>
+                </div> 
+            
+                
+            </div>
+        </div>
+       
+    {% endif %}
+    <script>
+
+        function alerta() {
+        // Muestra el div al cambiar el estilo de display a "block"
+        document.getElementById("ventana_informativa").style.display = "block";
+        }
+
+        function ocultarAlerta() {
+            // Oculta el div al cambiar el estilo de display a "none"
+            
+            document.getElementById("ventana_informativa").style.display = "none";
+            document.getElementById("contenedor_ventana_informativa").style.display = "none";
+        }
+
+    
+    </script>
+    
+{% endblock content %}

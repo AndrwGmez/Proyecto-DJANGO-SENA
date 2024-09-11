@@ -1,0 +1,226 @@
+/* Definición de una fuente personalizada */
+@font-face {
+    font-family: 'Myriad Pro Regular';
+    src: url(../../tipografia/MyriadProRegular/Myriad\ Pro\ Regular.ttf);
+}
+
+/* Definición de variables de colores */
+:root {
+    --white: #39A900;
+    --green: #229395;
+    --green-light: #fdfdfd;
+    --black: #000000;
+    --grey: #85888C;
+    --violet: #A830C6;
+    --red: #EC410F;
+}
+
+
+/* Estilos para el encabezado h1 */
+h1 {
+    font-size: 30px;
+    text-align: center;
+    color: #39A900;
+    padding-bottom: 1%;
+}
+
+/* Estilos para el formulario de creación de material */
+.formulario-crear-material {
+    border: 1px solid #39A900;
+    border-radius: 7px;
+    box-shadow: 2px 2px 2px 1px #38a9007d;
+    align-items: center;
+    height: auto;
+    overflow: hidden;
+    min-height: 550px;
+}
+
+/* Estilos para el botón de envío del formulario */
+button {
+    font-weight: 700;
+    color: #ffffff;
+    background-color: #39A900;
+    padding: 9px 25px;
+    border-color: #ffffff;
+    border: solid;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    margin-left: 3%;
+    height: 36px;
+    margin: auto;
+}
+
+
+.estado-indicator {
+    display: flex;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-left: 190px; /* Espacio entre el indicador y el elemento */
+}
+
+.active {
+    background-color: green;
+}
+
+.inactive {
+    background-color: red;
+}
+
+.waiting {
+    background-color: yellow;
+}
+
+.consumibles{
+    display: flex;
+    justify-content: left;
+}
+
+.devolutivos{
+    display: flex;
+    justify-content: left;
+}
+
+h6{
+    margin-left: 3px;
+}
+
+/* Efecto de color y escala al pasar el cursor sobre el botón de envío */
+button:hover {
+    background-color: #ffffff;
+    color: #39A900;
+    border-color: #39A900;
+    transform: scale(1.1);
+}
+
+/* Estilos para los campos de entrada de texto en el formulario */
+.formulario-crear-material input {
+    width: 25%;
+    padding: 0 15px 0 0;
+    height: 40px;
+    border: 1px solid #39A900;
+    border-radius: 5px;
+    background-color: #f4f2f2;
+    font-size: 14px;
+    text-align: center;
+}
+
+/* Estilos para los campos de selección en el formulario */
+
+
+.contendor-principal{
+    justify-items: center;
+    width: 80%;
+    margin: auto;
+}
+
+/* Estilos para la línea horizontal */
+hr {
+    width: 285%;
+    margin: 5%;
+    background-color: #39A900;
+}
+
+table {
+    border-collapse: collapse;
+}
+th, td {
+    border: 1px solid #39A900;
+    padding: 10px;
+    text-align: center;
+}
+
+.contenedor-calendario-ventana {
+    display: flex;
+    align-items: flex-start; /* Alinea el calendario arriba */
+}
+
+/* Estilos para el calendario */
+#contenedorCalendario {
+    width: 50%; /* Ajusta el ancho según tus necesidades */
+    margin-left: 5%;
+}
+
+/* Estilos para la ventana */
+.ventana {
+    width: 35%; /* Ajusta el ancho según tus necesidades */
+    text-align: center;
+    align-items: center;
+    border: 1px solid #39A900;
+    border-radius: 7px;
+    box-shadow: 2px 2px 2px 1px #38a9007d;
+    height: 95%;
+    margin-left: 60%;
+    overflow: hidden;
+    margin-top: -15%; /* Ajusta este valor según tus necesidades */
+}
+
+.filtro{
+    text-align: center;
+    margin: auto;
+    align-content: center;
+    margin-bottom: 20px;
+}
+
+.contenido{
+    display: flex;
+    justify-content: space-between;
+}
+
+.ventana{
+    padding: 20px;
+    margin: auto;
+    margin-right: 5%;
+    width: 35%;
+    border-radius: 5px;
+    border: 1px solid #39A900;
+    box-shadow: 2px 2px 2px 2px #39A900;
+}
+
+.contenedor-tipos{
+    display: flex;
+    padding: 5px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.circulo{
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    color: #229395;
+}
+
+.boton-filtro{
+    width: 100%;
+}
+
+@media (max-width: 1050px) {
+    .contenido{
+        display: block;
+        align-items: center;
+        align-content: center;
+    }
+
+    #contenedorCalendario{
+        margin-left: 10%;
+    }
+
+    .ventana{
+        width: 40%;
+        margin: auto;
+        margin-top: 5%;
+        margin-bottom: 5%;
+    }
+
+    h6{
+        font-size: 14px;
+    }
+
+    button{
+        font-size: 14px;
+        height: 2%;
+    }
+}

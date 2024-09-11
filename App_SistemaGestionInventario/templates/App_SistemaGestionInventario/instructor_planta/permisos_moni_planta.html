@@ -1,0 +1,32 @@
+{% extends "App_SistemaGestionInventario/instructor_planta/base_instructor_planta.html" %}
+
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'App_SistemaGestionInventario/css/listar_usuarios_contra_style.css' %}">
+    <link rel="stylesheet" href="{% static 'App_SistemaGestionInventario/css/registrar_elementos_instructor_planta_style.css' %}">
+{% endblock css %}
+
+{% block content %}
+    <main>        
+        <br>
+    <center>
+        <div class="botones-permisos center">
+            <form method="post" action="/dar_permi_planta/">
+                {% csrf_token %}
+                <div class="boton center">
+                    <button class="center" type="submit" name="accion" value="dar">Dar Permiso a Todos</button>
+                </div>
+
+                <br>
+
+                <div class="boton center">
+                    <button class="center" type="submit" name="accion" value="quitar">Quitar Permiso a Todos</button>
+                </div>                             
+            </form>
+        </div>
+    </center>
+           
+    </main>  
+    
+{% endblock content %}

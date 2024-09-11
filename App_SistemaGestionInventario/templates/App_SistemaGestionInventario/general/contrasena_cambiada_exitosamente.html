@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    {% load static%}
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Automatización para las bodegas de software"> <!--Descripción de la página-->
+    <meta name="keywords" content="Sistema Gestión Inventario"> <!--Corresponde a la identificación de palabras especiales-->
+    <link rel="shortcut icon" href="{% static 'App_SistemaGestionInventario/img/logo_sena.svg' %}">
+    <meta name="author" content="Ficha: 2503319, Angie Katherine Toro, Anderson Rincon Gomez, Mariana Henao Marin, Julio Cesar Orozco Lopez"> <!--Corresponde al autor de la pagina-->
+    <link rel="stylesheet" href="{% static 'App_SistemaGestionInventario/css/validacion_pin.css' %}">
+
+
+    <title>S.G.I</title>
+</head>
+<body>
+    <div class="tpd-card">
+        <h1>Contraseña Cambiada Exitosamente</h1>
+        <p>Tu contraseña ha sido cambiada con éxito. Ahora puedes iniciar sesión con tu nueva contraseña.</p>
+        <a href="{% url 'salir' %}">Iniciar Sesión</a>
+    </div>
+</body>
+</html>

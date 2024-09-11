@@ -1,0 +1,139 @@
+{% extends "App_SistemaGestionInventario/instructor_contratista/base_instructor_contrato.html" %}
+
+{% load static %}
+
+
+{% block css %}
+
+<link rel="stylesheet" href="{% static 'App_SistemaGestionInventario/css/registrar_elementos_contrato_style.css' %}">
+
+
+{% endblock css %}
+
+{% block content %}
+
+    <main>
+        <h2>Registrar Materiales</h2> <!-- Título del formulario -->
+        <form action="/regis_mate_ins_contra/" method="POST" class="formulario-crear-material" id="crear-materialForm">
+            {% csrf_token %}
+            <div class="contenedor-desplegable center">
+                <label for="">Material: </label>
+                <select  name="tipo_material" id="select1">
+                    {% for tipo in tipo_material %}
+                        <option value="{{tipo}}">{{tipo}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <input class="input-formulario-material" type="text" name="nombre_material" placeholder="Nombre del material" > <!-- Campo de entrada de texto -->
+            <input class="input-formulario-material" type="text" name="modelo_material" placeholder="Modelo del material" >
+            <div class="contenedor-desplegable">
+                <label for="">Ubicación del material: </label>
+                <select name="ubicacion_material" id="select1">
+                    {% for ubicar in ubicacion %}
+                        <option value="{{ubicar}}">{{ubicar}}</option>
+                    {% endfor %}
+                </select>
+            </div><!-- Campo de entrada de texto -->
+            <input class="input-formulario-material" type="number" name="valor_material" placeholder="Valor del material" > <!-- Campo de entrada de texto -->
+            <div class="contenedor-desplegable">
+                <label for="">Estado del material: </label>
+                <select name="estado_material" id="select1">
+                    {% for estado in estado_material %}
+                        <option value="{{estado}}">{{estado}}</option>
+                    {% endfor %}
+                </select>
+            </div> <!-- Campo de entrada de texto -->
+            <input class="input-formulario-material" type="text" name="especificacion_material" placeholder="Especificaciones tecnicas" > <!-- Campo de entrada de texto -->
+            <div class="contenedor-desplegable"> <!-- Campo de entrada de texto -->
+                <label for="">Instructor a cargo:</label>
+                <select name="instructor_encargado" id="select1">
+                    {% if ins_planta %}
+
+                        {% for usuario_planta in ins_planta %}
+
+                            <option value="{{usuario_planta.numero_documento}}">{{usuario_planta.nombre_1}} {{usuario_planta.apellido_1}}</option>
+                        
+                        {% endfor %}
+                    {% endif %}
+                </select>
+            </div>
+            <input class="input-formulario-material" type="number" name="codigo_barras_normal" placeholder="Código ELEMENTO"> <!-- Campo de entrada de texto -->
+            <input class="input-formulario-material" type="number" name="codigo_sena" placeholder="Código SENA"> <!-- Campo de entrada de texto -->            
+            <div class="contenedor-desplegable"> <!-- Campo de entrada de texto -->
+                <label for="">Quien registra:</label>
+                <select name="encargado_registro" id="select1">
+                    {% if usuarios %}
+                        {% for usuario in usuarios %}
+
+                            <option value="{{usuario.numero_documento}}">{{usuario.nombre_1}} {{usuario.apellido_1}}</option>
+                        
+                        {% endfor %}
+                    {% endif %}
+                </select>
+            </div> <!-- Campo de entrada de texto -->
+            
+            <div class="contenedor-desplegable"> 
+                <label for="">Firma digital:</label>
+                <input class="input-formulario-material" type="file" name="firma_electronica" placeholder="firma electrónica" > <!-- Campo de entrada de texto -->
+            </div>
+            
+            
+            <input class="inputfecha" type="date" name="fecha_ingreso" id="fechaActual" readonly>
+            
+          
+            <div class="boton center ">
+                
+                <button class="center" type="submit" onclick="alerta()">Registrar</button><!--Se agrega boton el cual envia los datos recolectados en el formulario y los envia al back-->
+            </div>  
+        </form>     
+    </main>
+    {% if mensaje_alerta != None and mensaje_alerta != '' %}
+        <div class="contenedor-ventana-informativa" id="contenedor_ventana_informativa" onclick="ocultarfondo()">
+            <div id="ventana_informativa" class="ventana-informativa">
+                <div class="contenido-ventana">
+                    {{mensaje_alerta}}
+                
+                    <br>
+                    <button onclick="ocultarAlerta()" name="boton-cerrar">Cerrar</button>
+                </div> 
+            
+                
+            </div>
+        </div>
+        
+       
+    {% endif %}
+
+    <script>
+
+        function alerta() {
+        // Muestra el div al cambiar el estilo de display a "block"
+        document.getElementById("ventana_informativa").style.display = "block";
+        }
+
+        function ocultarAlerta() {
+            // Oculta el div al cambiar el estilo de display a "none"
+            
+            document.getElementById("ventana_informativa").style.display = "none";
+            document.getElementById("contenedor_ventana_informativa").style.display = "none";
+        }
+
+    
+    </script>
+
+    <script>
+        window.onload = function(){
+            var fecha = new Date(); //Fecha actual
+            var mes = fecha.getMonth()+1; //obteniendo mes
+            var dia = fecha.getDate(); //obteniendo dia
+            var ano = fecha.getFullYear(); //obteniendo año
+            if(dia<10)
+              dia='0'+dia; //agrega cero si el menor de 10
+            if(mes<10)
+              mes='0'+mes //agrega cero si el menor de 10
+            document.getElementById('fechaActual').value=ano+"-"+mes+"-"+dia;
+          }
+    </script>
+
+{% endblock %}
+

@@ -1,0 +1,90 @@
+{% extends "App_SistemaGestionInventario/administrador/base_admin.html" %}
+
+{% load static %}
+
+<!-- Se agregan los enlaces para el CSS -->
+{% block css %}
+    <link rel="stylesheet" href="{% static 'App_SistemaGestionInventario/css/registrar_elementos_instructor_planta_style.css' %}">
+    <link rel="stylesheet" href="{% static 'App_SistemaGestionInventario/css/reg_mate_admin_style.css' %}">
+    <link rel="stylesheet" href="{% static 'App_SistemaGestionInventario/css/bootstrap.css' %}">
+{% endblock css %}
+
+{% block content %}
+    <main>
+        <h2>Registrar Usuarios</h2>        
+        <form action="/crear_usu/" method="POST" class="formulario-crear-material" id="crear-materialForm" enctype="multipart/form-data">
+            {% csrf_token %}
+    
+            <input class="input-formulario-material" type="text" name="username" placeholder="Número de documento" required>
+            <input class="input-formulario-material" type="password" name="password1" placeholder="Contraseña" required>
+            <input class="input-formulario-material" type="password" name="password2" placeholder="Confirmar contraseña" required>
+            <input class="input-formulario-material" type="text" name="nombre_1" placeholder="Primer nombre" required>
+            <input class="input-formulario-material" type="text" name="nombre_2" placeholder="Segundo nombre">
+            <input class="input-formulario-material" type="text" name="apellido_1" placeholder="Primer apellido" required>
+            <input class="input-formulario-material" type="text" name="apellido_2" placeholder="Segundo apellido">
+            <div class="contenedor-desplegable">
+                <label for="">Tipo de Documento</label>
+                <select name="id_tipo_documento" class="select1">
+                    {% for value, label in form.fields.id_tipo_documento.choices %}
+                        <option value="{{ value }}">{{ label }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <input class="input-formulario-material" type="text" name="numero_documento" placeholder="Nombre de usuario" required>
+            <input class="input-formulario-material" type="email" name="correo_sena" placeholder="Correo SENA" required>
+            <input class="input-formulario-material" type="email" name="correo_soy_sena" placeholder="Correo SOY SENA" required>
+            <input class="input-formulario-material" type="text" name="celular_1" placeholder="Celular 1" required>
+            <input class="input-formulario-material" type="text" name="celular_2" placeholder="Celular 2">
+            <div class="contenedor-desplegable">
+                <label for="">Rol</label>
+                <select name="id_rol" class="select1">
+                    {% for value, label in form.fields.id_rol.choices %}
+                        <option value="{{ value }}">{{ label }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <input class="input-formulario-material" type="date" name="fecha_inicio_contrato" placeholder="Fecha de inicio de contrato" required>
+            <input class="input-formulario-material" type="date" name="fecha_fin_contrato" placeholder="Fecha de fin de contrato" required>
+            <div class="contenedor-desplegable">
+                <label for="">Área del Instructor</label>
+                <select name="id_area_instrtuctor" class="select1">
+                    {% for value, label in form.fields.id_area_instrtuctor.choices %}
+                        <option value="{{ value }}">{{ label }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <input class="input-formulario-material" type="file" name="firma_electronica" placeholder="Firma Electrónica" required>            
+            <div class="contenedor-desplegable">
+                <label for="">Estado de la Cuenta</label>
+                <select name="estado_cuenta" class="select1">
+                    {% for value, label in form.fields.estado_cuenta.choices %}
+                        <option value="{{ value }}">{{ label }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="boton center">
+                <button class="center" type="submit">Registrar</button>
+            </div>            
+        </form>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                {% for message in messages %}
+                    {% if message.tags == 'success' %}
+                        mostrarModal('Éxito', '{{ message }}');
+                    {% elif message.tags == 'error' %}
+                        mostrarModal('Error', '{{ message }}');
+                    {% endif %}
+                {% endfor %}
+            });
+        
+            function mostrarModal(titulo, contenido) {
+                // Modificar esta lógica según cómo manejas los modales en tu proyecto
+                // Aquí se utiliza tu modal original como ejemplo
+                document.getElementById("ventana_informativa").style.display = "block";
+                document.getElementById("contenedor_ventana_informativa").style.display = "none";
+                document.getElementById("ventana_informativa_titulo").innerText = titulo;
+                document.getElementById("ventana_informativa_contenido").innerText = contenido;
+            }
+        </script>
+    </main>
+{% endblock %}

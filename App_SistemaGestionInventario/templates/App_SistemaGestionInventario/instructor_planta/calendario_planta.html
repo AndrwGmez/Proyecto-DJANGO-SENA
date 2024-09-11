@@ -1,0 +1,90 @@
+{% extends "App_SistemaGestionInventario/instructor_planta/base_instructor_planta.html" %}
+
+{% load static %}
+
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'App_SistemaGestionInventario/css/calendario_administrador_style.css' %}">
+{% endblock css %}
+
+{% block content %}
+
+<main>
+    <div class="titulo">
+        <h2>Calendario de préstamos próximos a finalizar</h2>
+    </div>
+
+    <div class="info-uso">
+        <p>Total de préstamos por retornar: <strong>{{prestamos_actuales|length}}</strong></p>
+        <br>
+        <p>Ingrese el año y el mes para filtrar.</p>
+    </div>
+
+    <form action="/calen_planta/" class="formulario-fecha" method="POST">
+        {% csrf_token %}
+        
+        <label for="anio">Año (YYYY):</label>
+        <input type="text" id="anio" maxlength="4" placeholder="YYYY" oninput="validarAnio(this)" name="Anio" value='2024'>
+        
+        <label for="mes">Mes (MM):</label>
+        <input type="text" id="mes" maxlength="2" placeholder="MM" oninput="validarMes(this)" name="Mes" value='01'>
+        
+        <input type="submit" value="Buscar">
+    </form>
+    <br>
+    <p class="info-cantidad">Cantidad de préstamos de {{mes}} del {{anio}}: {{lista|length}} </p>
+
+
+
+    <ul class="contenedor-prestamos">
+        {% if lista %}
+
+            {% for prestamos in lista %}
+            <div class="prestamos">
+                
+                <div>
+                    <li>Nombre del material: <strong> {{prestamos.material_otorgado_devolutivo.nombre_material}} </strong></li>
+                    <li>Código del material: <strong> {{prestamos.material_otorgado_devolutivo.codigo_barras_sena_material | slice:":12" | safe}} </strong></li>
+                    <li>Ubicación del material: <strong> {{prestamos.ubicacion_prestamo_material_devolutivo}} </strong></li>
+                    <li>Fecha de entrega: <strong> {{prestamos.fecha_devolucion_material_devolutivo}} </strong></li>
+                    <li>Instructor a cargo: <strong> {{prestamos.material_otorgado_devolutivo.instructor_ecargado_material}} </strong></li>
+
+                        <form action="/reto_devo_planta/" method="POST" class="formulario-retorno">
+                            {% csrf_token %}
+                            <input type="text" style="display: none;" value="{{prestamos.id}}" name="codigo_retorno">
+                            <input type="submit" value="Ver más">
+                        </form>
+                    
+                </div>
+                <br>   
+            </div>
+            {% endfor %}
+        
+        {% else %}
+            <p class="info-cantidad">En esta fecha no hay préstamos por retornar</p>
+        {% endif %}
+    </ul>
+
+    <script>
+        function validarMes(input) {
+        var mes = parseInt(input.value, 10);
+        if (!(mes >= 1 && mes <= 12) && input.value.length > 0) {
+            alert("El mes debe estar entre 01 y 12.");
+            input.value = "";
+        }
+        }
+
+        function validarAnio(input) {
+        var anio = parseInt(input.value, 10);
+        if (isNaN(anio) && input.value.length > 0) {
+            alert("Por favor, ingresa un año válido (YYYY).");
+            input.value = "";
+        }
+        }
+    </script>
+
+</main>
+    
+
+{% endblock content %}
+

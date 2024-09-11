@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Automatización para las bodegas de software"> <!--Descripción de la página-->
+    <meta name="keywords" content="Sistema Gestión Inventario"> <!--Corresponde a la identificación de palabras especiales-->
+    <meta name="author" content="Ficha: 2503319, Angie Katherine Toro, Anderson Rincon Gomez, Mariana Henao Marin, Julio Cesar Orozco Lopez"> <!--Corresponde al autor de la pagina-->
+    <link rel="shortcut icon" href="{% static 'App_SistemaGestionInventario/img/logo_sena.svg' %}">
+    <link rel="stylesheet" href="{% static 'App_SistemaGestionInventario/css/index_informacion_style.css' %}">
+    <title>S.G.I</title>
+</head>
+<body>
+    <!-- Cabecera -->
+    <header class="header">
+        <div class="logo">
+            <img src="{% static 'App_SistemaGestionInventario/img/logo-sena-verde-actual-2022.svg' %}" alt="Logo sena">
+        </div>
+        <div>
+            <h1>S.G.I</h1>
+        </div>
+        <a href="{% url 'funciones_ingreso_rol' %}" class="btn"><button>Iniciar sesión</button></a><!--al dar click permite re direccionar -->
+    </header>
+
+    <!-- Informacion y contenido -->
+    <main class="contenido">
+        <section class="contenido-info-sgi">
+            <h2>Sistema de Gestión de Inventario</h2>
+            <p>Una herramienta útil para ayudar al área de desarrollo de software del Centro de Diseño e Innovación Tecnológica Industrial a realizar  el seguimiento de los materiales (Devolutivos y consumibles). Con función de gestionar el inventario permitiendo un seguimiento de los materiales del registro, monitoreando las entradas y salidas de los elementos, dirigiendo y optimizando la gestión del inventario en general.</p>
+            <a href="{% url 'index_principal' %}" class="btn"><button>volver</button></a><!--al dar click permite re direccionar -->
+        </section>
+        <div class="contenedor-imagen">
+            <img src="{% static 'App_SistemaGestionInventario/img/sistema_gestion_inventario.png' %}" alt="">
+        </div>
+    </main>
+    
+    <!-- Pie de pagina  -->
+    <footer>
+        <!-- Informacion CDITI -->
+        <div class="contenedor-footer">
+            <div class="contenedor-info">
+                <h3 class="nombre-sena">Centro de Diseño e Innovación Tecnológica Industrial</h3>
+                <span class="info-footer"><strong>Dosquebradas:</strong> 3430111</span>
+                <span class="info-footer"><strong>Resto del país:</strong> 018000910270</span>
+                <span class="info-footer"><strong>Horario de atención:</strong> Lunes a Viernes 7:00 AM a 7:00 PM</span>
+            </div>
+            <!-- Redes sociales -->
+            <div class="contenedor-redes">
+                <span class="titulo-redes-sociales">Redes Sociales</span>
+                <div class="redes-sociales-contenedor">
+                    <a href="https://web.facebook.com/SENARisaralda" class="link-social" target="_blank"></a>
+                    <a href="https://www.instagram.com/senadosquebradas/?hl=es" class="link-social" target="_blank"></a>
+                    <a href="https://www.linkedin.com/school/servicio-nacional-de-aprendizaje-sena-/" class="link-social" target="_blank"></a>
+                    <a href="https://www.tiktok.com/@senacomunica_" class="link-social" target="_blank"></a>
+                    <a href="https://twitter.com/SENAComunica" class="link-social" target="_blank"></a>
+                    <a href="https://api.whatsapp.com/send/?phone=573168760255&text&app_absent=0" class="link-social" target="_blank"></a>
+                </div>
+            </div>
+        </div>
+        <!-- Copyright -->
+        <div class="contenedor-copyright">
+            <span class="copyright">&copy;2023, Ficha. 2503319 <br> Anderson Rincon Gomez, Angie Katherine Toro Echeverri, Julio Cesar Orozco López, Mariana Henao Marin</span>
+        </div>
+    </footer>
+</body>
+</html>

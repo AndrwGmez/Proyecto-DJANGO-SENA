@@ -1,0 +1,64 @@
+{% extends "App_SistemaGestionInventario/instructor_planta/base_instructor_planta.html" %}
+
+{% load static %}
+
+    {% block css %}
+        <link rel="stylesheet" href="{% static 'App_SistemaGestionInventario/css/listar_mate_baja_planta_style.css' %}">
+    {% endblock css %}
+
+{% block content %}
+
+    <main>
+        <div class="garan">
+            <div class="garan2">
+                <img src="{% static "App_SistemaGestionInventario/img/funciones_instructor_planta/De_Baja512px.png" %} " alt="imagen.png">
+            </div>
+            <h2>Materiales dados de baja</h2>
+            
+        </div>  
+        <p>Para hacer consultas, filtre por código SENA o nombre del elemento</p>
+        <form action="/lis_mate_baja_planta/" method="POST" class="formulario-crear-material" id="crear-materialForm">
+            {% csrf_token %}
+            <div class="contenedor-desplegable-opciones">
+                <label for="">Buscar por: </label>
+                <select name="buscar_material" id="select1">
+                    <option value="codigo_sena_material">Código SENA</option>
+                    <option value="nombre_material">Nombre</option>
+                </select>
+            </div>
+            <input class="input-formulario-material" type="text" name="CodigoSenaMaterial" placeholder="Código SENA">
+            <input type="text" name="NombreMaterial" id="fecha" class="form-input-formulario-material" placeholder="Nombre">
+            
+            <div class="boton">
+                <button type="submit">Filtrar</button>
+            </div>  
+        </form>
+
+        <div class="filtrar-material">
+            {% if consulta_db %}
+
+            <ul>   
+                {% for material in consulta_db %}
+                    <br>
+                    <a href="#">
+                        <li>Nombre: <strong>{{material.nombre_material}}</strong></li>
+                        <li>Modelo: <strong>{{material.modelo_material}}</strong></li>
+                        <li>Instructor encargado: <strong>{{material.instructor_ecargado_material}}</strong></li>
+                        <li>Código SENA: <strong>{{material.codigo_barras_sena_material}}</strong></li>
+                        <li>Estado: <strong>{{material.estado_material}}</strong></li>
+                        
+                    </a>
+                    <br>
+                    <hr>
+                {% endfor %}
+                
+            </ul>
+
+            {% else %}
+                <br>
+                <span>Material <strong>{{busqueda}}</strong> no se encontró</span>            
+            {% endif %}
+        </div>  
+    </main>
+
+{% endblock content %}

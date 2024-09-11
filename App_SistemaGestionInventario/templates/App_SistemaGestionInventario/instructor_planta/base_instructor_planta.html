@@ -1,0 +1,88 @@
+<!DOCTYPE html> 
+
+<html lang="en">
+<head>
+    {% load static %} <!-- Cargar archivos estáticos -->
+
+    {% block css %}
+    
+    {% endblock css%}
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Automatización para las bodegas de software"> <!-- Descripción de la página -->
+    <meta name="keywords" content="Sistema Gestión Inventario"> 
+    <meta name="author" content="Ficha: 2503319, Angie Katherine Toro, Anderson Rincon Gomez, Mariana Henao Marin, Julio Cesar Orozco Lopez"> 
+    <link rel="shortcut icon" href="{% static 'App_SistemaGestionInventario/img/logo_sena.svg' %}"> <!-- Icono de la página -->
+    <link rel="stylesheet" href="{% static 'App_SistemaGestionInventario/css/plantilla_base_instructor_planta_style.css' %}"> <!-- Enlace a al archivo de estilo CSS -->
+    <title>S.G.I</title> 
+</head>
+<body>
+    <header class="header"> <!-- Encabezado de la página con la clase "header" -->
+        <div class="seccion-logo">
+            <a class="logo" href="{% url 'funciones_instructor_planta' %}"><img src="{% static 'App_SistemaGestionInventario/img/logo-sena-verde-actual-2022.svg' %}" alt="logo.sena"></a> <!-- Logo del SENA -->
+        </div>
+        <div class="seccion-menu">
+            <input type="checkbox" id="side-menu" class="side-menu"> <!-- Checkbox para el menú lateral -->
+            <label for="side-menu" class="menham"><span class="l-hamb"></span></label> <!-- Etiqueta del menú hamburguesa -->
+            <nav class="nav"> <!-- Navegación principal de la página -->
+                <ul class="menu"> <!-- Lista de menú -->
+                    <!-- Elementos del menu -->
+                    <li><a href="{% url 'calendario_planta' %}">Calendario</a></li> 
+                    <li><a class="contenedor-link" id="contenedor-botones-registrar" href="{% url 'registrar_material_instructor_planta' %}">Registrar materiales</a>                </li>
+                    <li><a href="{% url 'lista_usuarios' %}">Usuarios</a></li> 
+                    <li><a href="{% url 'generar_reporte' %}">Generar reportes</a></li> 
+                    <li><a href="{% url 'vista_permisos_monitor_planta' %}">Permisos Monitor</a></li>                                
+                </ul>
+            </nav>
+        </div>
+
+        <div class="seccion-iconos">
+            <div class="menu-container">
+                <img src="{% static 'App_SistemaGestionInventario/img/usuario512px.png' %}" alt="Menú" class="menu-trigger" onclick="toggleMenu()">
+                <ul class="dropdown-menu" id="myDropdown">
+                    <li><a href="{% url 'visualizar_cuenta_planta' %}">Cuenta</a></li>
+                    <li><a href="{% url 'salir' %}">Cerrar Sesión</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </header>
+
+    <a class="flecha" href="{% url 'funciones_instructor_planta' %}">
+        <img src="{% static 'App_SistemaGestionInventario/img/FlechaVolver.png' %}" alt="Volver">
+    </a>
+
+    {% block content %} <!-- Inicio de un bloque llamado "content" -->
+    {% endblock %} <!-- Fin del bloque "content" -->
+    
+
+    <footer>
+        <div class="contenedor-footer"> <!-- Contenedor principal del pie de página -->
+            <div class="contenedor-info"> <!-- Contenedor para información de contacto y horario -->
+                <h3 class="nombre-sena"><strong>Centro de Diseño e Innovación Tecnológica Industrial</strong></h3> <!-- Nombre del centro -->
+                <span class="info-footer"><strong>Dosquebradas:</strong> 3430111</span> <!-- Información de contacto -->
+                <span class="info-footer"><strong>Resto del país:</strong> 018000910270</span> <!-- Información de contacto -->
+                <span class="info-footer"><strong>Horario de atención:</strong> Lunes a Viernes 7:00 AM a 7:00 PM</span> <!-- Horario de atención -->
+            </div>
+            <div class="contenedor-redes"> <!-- Contenedor para enlaces a redes sociales -->
+                <span class="titulo-redes-sociales">Redes Sociales</span> <!-- Título de la sección de redes sociales -->
+                <div class="redes-sociales-contenedor"> <!-- Contenedor para los enlaces a redes sociales -->
+                    <!-- Enlace redes sociales -->
+                    <a href="https://web.facebook.com/SENARisaralda" class="link-social" target="_blank"></a> 
+                    <a href="https://www.instagram.com/senadosquebradas/?hl=es" class="link-social" target="_blank"></a> 
+                    <a href="https://www.linkedin.com/school/servicio-nacional-de-aprendizaje-sena-/" class="link-social" target="_blank"></a> 
+                    <a href="https://www.tiktok.com/@senacomunica_" class="link-social" target="_blank"></a> 
+                    <a href="https://twitter.com/SENAComunica" class="link-social" target="_blank"></a> 
+                    <a href="https://api.whatsapp.com/send/?phone=573168760255&text&app_absent=0" class="link-social" target="_blank"></a>
+                </div>
+            </div>
+        </div>
+        <div class="contenedor-copyright"> <!-- Contenedor para el aviso de derechos de autor -->
+            <center>
+            <span class="copyright">&copy;2023, Ficha 2503319 <br> Anderson Rincón Gómez, Angie Katherine Toro Echeverri, Julio Cesar Orozco López, Mariana Henao Marín</span><!-- Aviso de derechos de autor con el año y número de ficha -->
+            </center>
+        </div>
+    </footer>
+    <script src="{% static "App_SistemaGestionInventario/js/base_administrador_script.js" %}"></script>
+</body>
+</html>

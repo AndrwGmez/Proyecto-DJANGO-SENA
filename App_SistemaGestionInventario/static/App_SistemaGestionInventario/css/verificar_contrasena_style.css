@@ -1,0 +1,306 @@
+@font-face {
+    font-family: 'Myriad Pro Regular' ;
+    src: url(../../tipografia/MyriadProRegular/Myriad\ Pro\ Regular.ttf);
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    font-family: 'Myriad Pro Regular', 'Arial';
+}
+
+.header{
+    background-color: rgb(155, 155, 155, 24%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 85px;
+    padding: 5px 10%;
+}
+
+h1{
+    font-size: 40px;
+    color: #39A900;
+}
+
+.header .logo{
+    cursor: pointer;
+}
+
+.header .logo img{
+    height: 70px;
+    width: auto;
+    transition: all 0.3s;
+}
+
+.header .logo img:hover{
+    transform: scale(1.2);
+}
+
+.header .btn button{
+    color: #ffffff;
+    background-color: #39A900;
+    padding: 9px 25px;
+    width: auto;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+.header .btn button:hover{
+    background-color:#39A900;
+    color: white;
+    
+    transform: scale(1.1);
+}
+
+hr{
+    border-color: #39A900;
+}
+
+.contenido .btn button{
+    font-weight: 700;
+    color: #ffffff;
+    background-color: #39A900;
+    padding: 9px 25px;
+    border-color: #ffffff;
+    border: solid;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    margin-top: 30px;
+}
+
+.contenido .btn button:hover{
+    background-color: #ffffff;
+    color: #39A900;
+    border-color: #39A900;
+    transform: scale(1.1);
+}
+
+body{
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    background-color: rgb(255, 255, 251);
+    
+}
+
+.login-container {
+    background-color: #ffffff;
+    border: 2px solid #ccc;
+    padding: 20px;
+    width: 40%;
+    margin-top: 40px;
+    align-items: center;
+    border-radius: 5px;
+    margin-bottom: 40px;
+    margin-left: 30px;
+    border: 1px solid #39A900;
+    box-shadow: 0 10px 20px rgba(56, 169, 0, 0.119),
+    0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-form label {
+    margin-bottom: 5px;
+}
+
+.login-form select{
+    margin-bottom: 5px;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #2d2d2d;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-top: 20px;
+    
+}
+
+.login-form select option{
+    font-size: 15px;
+}
+
+.login-form input {
+    color: #39A900;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #2d2d2d;
+    border-radius: 4px;
+}
+
+.login-form button {
+    padding: 10px;
+    background-color: green;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 20px auto;
+    width: 50%;
+    
+   
+}
+
+.recuperacion_contra{
+    text-align: center;
+    text-decoration: none;
+    align-items: center;
+    color: #39A900;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.recuperacion_contra a{
+    border-bottom: 1px solid #39A900;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.footer{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(155, 155, 155, 24%);
+    color:#FFFFFF;
+}
+
+.contenedor-copyright{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.copyright{
+    font-size: 12px;
+    opacity: 0.7;
+    font-weight: 400;
+    padding: 10px 0;
+}
+
+.contenedor-footer{
+    text-align: center;
+    height: fit-content;
+    width: 100%;
+    padding: 3rem 6rem;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background-color: rgb(155, 155, 155, 24%)
+}
+
+.contenedor-info{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+footer .nombre-sena{
+    margin-bottom: 1.2rem;
+    font-size: calc(1vw + 20px);
+}
+
+.contenedor-redes{
+    padding: 17px;
+}
+
+.titulo-redes-sociales{
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+}
+
+.redes-sociales-contenedor{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    width: 100%;
+}
+
+.link-social{
+    height: 100%;
+    width: 30px;
+    background-image: url(../img/FACEBOOK/facebook512px.png);
+    background-size: 70%;
+    background-position: center;
+    margin-right: 1rem;
+    background-repeat: no-repeat;
+}
+
+.link-social:hover{
+    opacity: 0.7;
+}
+
+i{
+    color: #39A900;
+}
+
+footer .link-social:nth-of-type(2){
+    background-image: url(../img/INSTAGRAM/instagram512px.png);
+}
+
+footer .link-social:nth-of-type(3){
+    background-image: url(../img/LINKEDIN/linkedin512px.png);
+}
+
+footer .link-social:nth-of-type(4){
+    background-image: url(../img/TIKTOK/tiktok512px.png);
+}
+
+footer .link-social:nth-of-type(5){
+    background-image: url(../img/TWITTER/twitter512px.png);
+}
+
+footer .link-social:nth-of-type(6){
+    background-image: url(../img/WHATSAPP/whatsapp512px.png);
+}
+
+@media (max-width: 768px){
+    .contenedor-footer{
+        padding: 2rem;
+        flex-direction: column;
+    }
+
+    .contenedor-info{
+        width: 100%;
+        padding: 2rem 0;
+        border-bottom: 1px solid #2A2A2A;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .contenedor-info:nth-of-type(1){
+        align-items: flex-start;
+    }
+
+    .contenedor-info:nth-of-type(3){
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+}

@@ -1,0 +1,228 @@
+.contenedor-titulo{
+    justify-content: center;
+    display: flex;
+}
+
+.contenedor-titulo img{
+    width: 60px;
+    height: 60px;
+}
+
+.contenedor-titulo h2 {
+    margin-top: 7px;
+    padding: 6px;
+    font-size: 30px;
+    text-align: center;
+    color: #FFCE40;
+    padding-bottom: 3%;
+}
+
+.formulario-retorno {
+    width: 80%;
+    margin: auto;
+    padding-top: 10px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    border: 1px solid #FFCE40;
+    border-radius: 7px;
+    box-shadow: 2px 2px 2px 1px #FFCE408e;
+    padding-bottom: 10px;
+    padding: 15px;
+}
+
+.formulario-retorno h3{
+    margin-top: 7px;
+    padding: 6px;
+    font-size: 25px;
+    text-align: center;
+    color: #FFCE40;
+    padding-bottom: 3%;
+}
+
+hr{
+    background-color: #FFCE40;
+    border: 0;
+    height: 1px;
+    
+}
+
+.formulario-retorno input{
+    margin: 0;
+    margin-bottom: 15px;
+    padding: 15px;
+    border: 1px solid #FFCE40;
+    border-radius: 5px;
+    width: 25%;
+    background-color: #f4f2f2;
+    font-size: 14px;
+}
+
+input[readonly] {
+    border-color: #868686;
+    color: #868686;
+}
+
+.formulario-retorno label{
+    font-size: 15px;
+    margin-left: 20px;
+}
+
+.contenedor-desplegable{
+    margin-bottom: 15px;
+    padding-top: 10px;
+    border: 1px solid #FFCE40;
+    border-radius: 5px;
+    width: 40%;
+    background-color: #f4f2f2;
+    position: relative;
+    display: inline-block;
+    height: 50px;
+}
+
+#desplegable {
+    border: none;
+    padding: 1%;
+    background-color: #f4f2f2;
+    font-size: 15px;
+    color: #FFCE40;
+    width: 40%;
+}
+
+option{
+    font-size: 15px;
+}
+
+
+.formulario-retorno span{
+    font-size: 13px;
+    margin-left: 15%;
+    position: relative;
+    top: -20px;
+    color: #868686;
+}
+
+textarea {
+    margin-left: 3%;
+    width: 80%;
+    margin-top: 7px;
+    padding: 5px;
+    border-radius: 7px;
+    border-color: 1px solid #868686;
+    color: #868686;
+    background-color: #f4f2f2;
+    resize: none;
+}
+
+.contenedor-boton{
+    margin-top: 10px;
+    width: 95%;
+    display: flex;
+    justify-content: end;
+}
+
+.contenedor-boton button {
+    border: 2px solid #FFCE40;
+    width: 100px;
+    height: 40px;
+    border-radius: 7px;
+    color: #FFCE40;
+    cursor: pointer;
+    background-color: #FFFFFF;
+    transition: all 0.20s ease;
+}
+
+.contenedor-boton button:hover {
+    border-color: #FFFFFF;
+    color: #FFFFFF;
+    background-color: #FFCE40;
+}
+
+.retroceder{
+    border: 2px solid #FFCE40;
+    margin-left: 20px;
+    width: 100px;
+    height: 40px;
+    border-radius: 7px;
+    color: #FFCE40;
+    cursor: pointer;
+    background-color: #FFFFFF;
+    transition: all 0.20s ease;
+    
+}
+
+.retroceder a{
+    display: inline-block;
+    font-size: 23px;
+    color: #FFCE40;
+    width: 100%;
+    height: 80%;
+    margin: auto;
+    border-radius: 7px;
+}
+
+.retroceder a:hover{
+    color: #FFFFFF;
+    
+}
+
+.retroceder:hover,
+.retroceder a:hover{
+    border-color: #FFFFFF;
+    color: #FFFFFF;
+    background-color: #FFCE40;
+}
+
+.contenedor-boton-volver{
+    width: 95%;
+    display: flex;
+    justify-content: left;
+    margin-top: 10px;
+}
+
+@media (max-width: 850px){
+    .formulario-retorno{
+        width: 100%;
+        padding: 0 2%;
+    }
+
+    .formulario-retorno input{
+        width: 70%;
+    }
+
+    .formulario-retorno input[name="numero_documento"] {
+        width: 45%;
+    }
+
+    .formulario-retorno input[name="prestamista"] {
+        width: 50%;
+    }
+
+    .formulario-retorno input[name="fechas"]{
+        width: 50%;
+    }
+
+    .formulario-retorno label{
+        font-size: 13px;
+    }
+
+    .contenedor-desplegable {
+        width: 80%;
+        align-content: center;
+        margin-left: 10%;
+    }
+
+
+    #desplegable {
+        width: 30%;
+    }
+
+    .formulario-retorno span{
+        margin-left: 30%;
+    }
+
+    textarea{
+        margin: auto;
+        margin-top: 10px;
+        display: block;
+    }
+}

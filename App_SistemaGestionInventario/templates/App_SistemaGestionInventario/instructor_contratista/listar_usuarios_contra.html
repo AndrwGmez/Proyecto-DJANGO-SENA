@@ -1,0 +1,98 @@
+{% extends "App_SistemaGestionInventario/instructor_contratista/base_instructor_contrato.html" %}
+
+{% load static %}
+
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'App_SistemaGestionInventario/css/listar_usuarios_contra_style.css' %}">
+{% endblock css %}
+
+
+{% block content %}
+
+    <main>
+        <br>
+        <h3 class="planta">Instructores de planta</h3>
+        {% if ins_planta %}
+            <ul>   
+                {% for planta in ins_planta %}
+                    <a class="informacion_planta">
+                        <li><strong>Nombre:</strong> {{planta.nombre_1}} {{planta.apellido_1}}</li>
+                        <li><strong>Correo @soysena:</strong> {{planta.correo_soy_sena}}</strong></li>
+                        <li><strong>Número celular:</strong> {{planta.celular_1}}</strong></li>
+                        <li><strong>Fecha inicio de contrato:</strong> {{planta.fecha_inicio_contrato}}</strong></li>
+                        <li><strong>Fecha fin de contrato:</strong> {{planta.fecha_fin_contrato}}</strong></li>
+                        <li><strong>Estado:</strong> {{planta.estado_cuenta}}</strong></li>
+                        
+                    </a>
+                    <br>
+
+                    <hr class="entre_planta">
+
+                {% endfor %}
+                <br>
+            </ul>
+        {% else %}
+        <br>
+            <p>Actualmente no hay instructores de planta</p>
+            <br>
+        {% endif %}
+
+        <br>
+        <br>
+        
+        <h3 class="contrato">Instructores contratistas</h3>
+        {% if ins_contrato %}
+        <ul>   
+            {% for contrato in ins_contrato %}
+                <a class="informacion_contrato">
+                    <li><strong>Nombre: </strong>{{contrato.nombre_1}} {{contrato.apellido_1}}</li>
+                    <li><strong>Correo soysena: </strong>{{contrato.correo_soy_sena}}</li>
+                    <li><strong>Número celular: </strong>{{contrato.celular_1}}</li>
+                    <li><strong>Fecha inicio de contrato: </strong>{{contrato.fecha_inicio_contrato}}</li>
+                    <li><strong>Fecha fin de contrato: </strong>{{contrato.fecha_fin_contrato}}</li>
+                    <li><strong>Estado: </strong>{{contrato.estado_cuenta}}</li>
+                    
+                </a>
+                <br>
+                <hr class="entre_contrato">
+            {% endfor %}
+        </ul>
+        {% else %}
+            <br>
+            <p>Actualmente no hay instructores contratistas</p>
+            <br>
+        {% endif %}
+
+
+        <br>
+        <br>
+
+
+        <h3 class="monitor">Monitor</h3>
+        {% if monitor %}
+            <ul>
+                {% for moni in monitor %}
+                    <a class="informacion_monitor">
+                        <li><strong>Nombre: </strong>{{moni.nombre_1}} {{moni.apellido_1}}</li>
+                        <li><strong>Correo soysena: </strong>{{moni.correo_soy_sena}}</li>
+                        <li><strong>Número celular: </strong>{{moni.celular_1}}</li>
+                        <li><strong>Fecha inicio de contrato: </strong>{{moni.fecha_inicio_contrato}}</li>
+                        <li><strong>Fecha fin de contrato: </strong>{{moni.fecha_fin_contrato}}</li>
+                        <li><strong>Estado: </strong>{{moni.estado_cuenta}}</li>
+                        
+                    </a>
+                    <br>
+                    <hr class="entre_monitor">                                    
+                {% endfor %}
+            </ul>
+        {% else %}
+            <br>
+            <p>Actualmente no hay monitores</p>
+        {% endif %}
+        <br>
+        
+    </main>
+{% endblock content %}
+
+
